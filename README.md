@@ -2,7 +2,7 @@
 
 ### Check out my blog! 🫱 <https://blog.zhaose.cyou/>
 
-![GNU/Linux](https://img.shields.io/badge/-GNU/Linux-yellow?logo=linux&logoColor=white&style=for-the-badge)
+![GNU/Linux](https://img.shields.io/badge/-GNU/Linux-FCC624?logo=linux&logoColor=white&style=for-the-badge)
 ![Arch Linux](https://img.shields.io/badge/-Arch%20Linux-1D99F3?logo=archlinux&logoColor=white&style=for-the-badge)
 ![GNOME](https://img.shields.io/badge/-gnome-3584E4?style=for-the-badge&logo=gnome&logoColor=white)
 
