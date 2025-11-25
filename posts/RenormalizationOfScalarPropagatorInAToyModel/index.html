@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Zhaose">
+<meta name="dcterms.date" content="2025-10-21">
 
-<title>index – Zhaose's Physics Notes</title>
+<title>Renormalization of scalar propagator in a toy model – Zhaose’s Physics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,10 +71,53 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -111,10 +156,57 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block"></header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Renormalization of scalar propagator in a toy model</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">physics</div>
+                <div class="quarto-category">QFT</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Zhaose </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 21, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#calculating-the-integral" id="toc-calculating-the-integral" class="nav-link" data-scroll-target="#calculating-the-integral">Calculating the integral</a>
+  <ul class="collapse">
+  <li><a href="#feynmann-factorize" id="toc-feynmann-factorize" class="nav-link" data-scroll-target="#feynmann-factorize">Feynmann factorize</a></li>
+  <li><a href="#wick-rotation" id="toc-wick-rotation" class="nav-link" data-scroll-target="#wick-rotation">Wick rotation</a></li>
+  <li><a href="#hard-cut-off" id="toc-hard-cut-off" class="nav-link" data-scroll-target="#hard-cut-off">Hard cut-off</a></li>
+  <li><a href="#renormalized-chi-propagator" id="toc-renormalized-chi-propagator" class="nav-link" data-scroll-target="#renormalized-chi-propagator">Renormalized <span class="math inline">\chi</span> propagator</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -122,7 +214,108 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="background" class="level1">
+<h1>Background</h1>
+<p>Consider a mass-full scalar field <span class="math inline">\phi</span> coupling with a mass-less scalar field <span class="math inline">\chi</span>, the toy model’s total Lagrangian can be written as: <span class="math display">
+\mathcal{L}_B = \partial_\mu \phi^* \, \partial^\mu \phi - m^2\phi^* \phi + {1 \over 2} \partial_\mu \chi \, \partial^\mu \chi - \lambda \phi^* \phi \chi
+</span> So we have Feynmann rules for those particles (in momentum space):</p>
+<ul>
+<li>Vertex: <span class="math inline">- i \lambda</span></li>
+<li><span class="math inline">\phi</span> propagator: <span class="math inline">i\over{p^2 - m^2 + i \epsilon }</span></li>
+<li><span class="math inline">\chi</span> propagator: <span class="math inline">i\over{p^2 + i \epsilon }</span></li>
+</ul>
+<p>Now we can consider a simple <span class="math inline">\phi - \phi</span> scattering process:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/pic1.svg" class="img-fluid figure-img"></p>
+<figcaption>Tree Level Feynmann Diagram</figcaption>
+</figure>
+</div>
+<p>The scattering amplitude of this diagram is simple: <span class="math display">
+\mathcal{M}^{(0)} = - i {\lambda^2 \over q^2}
+</span> This is an u-channel diagram, for this process, there is also a s-channel diagram, these two together make up the first order of this scattering process, however, for our topic today, it’s unrelated.</p>
+<p>Then consider the following high-order diagram, in which the <span class="math inline">\chi</span> particle breaks in to a pair of virtual <span class="math inline">\phi</span> and anti-<span class="math inline">\phi</span> particle.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/pic2.svg" class="img-fluid figure-img"></p>
+<figcaption><span class="math inline">\chi</span> Loop Diagram</figcaption>
+</figure>
+</div>
+<p>The amplitude of this new diagram is: <span class="math display">
+\mathcal{M}^{(1)} = {\lambda^4 \over q^4} \int {d^4 k \over (2\pi)^4} {1 \over {k^2 - m^2 + i \epsilon}} {1 \over {(k-q)^2 - m^2 + i \epsilon}}
+</span> One immediately sees this integral is divergent. The integral measure contains <span class="math inline">|k|^3</span>, causes the result to diverge in the form of <span class="math inline">\ln{|k|}</span>, and this does not make any sense, since this diagram is meant to be a small correction of the first diagram we’ve already covered. Something needs to be done to get a reasonable answer.</p>
+<p>Further investigation of there two amplitudes, one will notice the effect of the second diagram is just multiplying some factor on to the propagator of <span class="math inline">\chi</span>, which is: <span class="math display">
+G_\chi^{(1)}=G_\chi^{(0)} \, \lambda^2 {i \over q^2} \, I(q)
+</span> where <span class="math display">
+I(q) = \int {d^4 k \over (2\pi)^4} {1 \over {k^2 - m^2 +i \epsilon}} {1 \over {(k-q)^2 - m^2 +i \epsilon}}
+</span></p>
+</section>
+<section id="calculating-the-integral" class="level1">
+<h1>Calculating the integral</h1>
+<section id="feynmann-factorize" class="level2">
+<h2 class="anchored" data-anchor-id="feynmann-factorize">Feynmann factorize</h2>
+<p>Start with rewriting the integral in a more manageable form, using the fact that: <span class="math display">
+\begin{align*}
+{1 \over {A B}} &amp;= \int_0^1 dx {1 \over {[x A + (1-x) B]^2}} \\
+&amp;= \int_0^1 dx \int_0^1 dy \: \delta(x+y-1) \, {1 \over {[x A + y B]^2}}
+\end{align*}
+</span> The factorized denominator is: <span class="math display">
+\begin{align*}
+D &amp;= x(k^2 - m^2 +i \epsilon) + y[(k-q)^2 - m^2 +i \epsilon] \\
+  &amp;= k^2 - 2 y q k + y q^2 - m^2 + i \epsilon \\
+  &amp;= (k - yq)^2 + xyq^2 - m^2 + i \epsilon \\
+  &amp;= l^2 - \Delta + i \epsilon
+\end{align*}
+</span> In the third equal we’ve used <span class="math inline">x + y = 1</span>. Finally by shifting <span class="math inline">k</span>, which is just applying <span class="math inline">l = k - yq</span> and <span class="math inline">\Delta = - xyq^2 + m^2</span>, the integral becomes: <span class="math display">
+\int {d^4 k \over (2\pi)^4} {1 \over {k^2 - m^2 +i \epsilon}} {1 \over {(k-q)^2 - m^2 +i \epsilon}} \\
+= \int_0^1 dx \int_0^1 dy \: \delta(x+y-1) \, {1 \over (2\pi)^4} \int {d^4 l} {1 \over {(l^2 - \Delta + i\epsilon)^2}}
+</span></p>
+</section>
+<section id="wick-rotation" class="level2">
+<h2 class="anchored" data-anchor-id="wick-rotation">Wick rotation</h2>
+<p>The integral is integrated over the 4-dimensional Minkowski space, which is tedious. However, one can apply Wick rotation to turn it in to a 4-dimensional Euclid space integral.</p>
+<p>Focus on the integral over <span class="math inline">l^0</span>: <span class="math display">
+\int_{-\infty}^{+\infty}dl^0 {1 \over {[(l^0)^2-|\vec{l}|^2 - \Delta + i \epsilon]^2}}
+</span> The integral is real. However, this integral can be considered as a integral in the complex plane, the contour is around the upper-half of the complex plane, since obviously at <span class="math inline">\infty</span> things in the integral turn into zero. So the value of this integral only depends on the residue of singularities involved, which in the upper-half only have <span class="math inline">l^0 = -\sqrt{|\vec{l}|^2+\Delta} + i \epsilon</span>, so the contour can be rotated to the left-half of the plane, resulting in: <span class="math display">
+\int_{-i\infty}^{+i\infty}dl^0 {1 \over {[(l^0)^2-|\vec{l}|^2 - \Delta + i \epsilon]^2}}
+</span> Then apply <span class="math inline">l^0 = i l^4</span>: <span class="math display">
+\int_{-\infty}^{+\infty}dl^0 {1 \over {[(l^0)^2-|\vec{l}|^2 - \Delta + i \epsilon]^2}} = i \int_{-\infty}^{+\infty}dl^4 {1 \over {[- (l^4)^2 - |\vec{l}|^2 - \Delta + i \epsilon]^2}}
+</span> Integral over the 4-Minkowski now transforms into a 4-dimensional Euclid integral. The <span class="math inline">i\epsilon</span> is no longer necessary, since there are no singularities on the complex-axis: <span class="math display">
+\int {d^4 l} {1 \over {(l^2 - \Delta + i\epsilon)^2}} = i \int {d^4 \bm{l_E}} {1 \over {(\bm{l_E}^2 + \Delta )^2}}
+</span></p>
+</section>
+<section id="hard-cut-off" class="level2">
+<h2 class="anchored" data-anchor-id="hard-cut-off">Hard cut-off</h2>
+<p>One can calculate the integral by simply using the 4-dimensional spherical coordinate system, then apply a hard cut-off <span class="math inline">\Lambda</span> to <span class="math inline">l_E</span>:： <span class="math display">
+\int {d^4 \bm{l_E}} {1 \over {(\bm{l_E}^2 + \Delta)^2}} =\lim_{\Lambda \to + \infty} \int d\Omega_4 \int_{0}^{\Lambda}dl_E {{l_E}^3 \over {({l_E}^2 + \Delta)^2}}
+</span> By the way, this cut-off is Lorenz invariant, sinces it’s identical to a cut-off applied under Minkowski space. However, if one do the <span class="math inline">l^0</span> integral first then apply the cut-off, it’s not Lorenz invariant. Then this integral is trivial: <span class="math display">
+\begin{aligned}
+\int_{0}^{\Lambda}dl_E {{l_E}^3 \over {({l_E}^2 + \Delta)^2}} &amp;= {1 \over 2} \int_{0}^{\Lambda}d{l_E}^2 {{l_E}^2 \over {({l_E}^2 + \Delta)^2}} \\
+&amp;= {1 \over 2} \int_{0}^{\Lambda}d{l_E}^2 \left[{1 \over {{l_E}^2 + \Delta}} - {\Delta \over {({l_E}^2 + \Delta)^2}}\right] \\
+&amp;= {1 \over 2} \left( \ln{{\Lambda^2 + \Delta} \over \Delta} - {\Lambda^2 \over \Lambda^2  + \Delta} \right) \\
+&amp;= {1 \over 2} \left( \ln{{\Lambda^2} \over \Delta(x,y,q^2)} - 1 \right)
+\end{aligned}
+</span> Substitute all these result to the original inegral <span class="math inline">I(q)</span> (Integral over <span class="math inline">d\Omega_4</span> is <span class="math inline">2 \pi^2</span>): <span class="math display">
+I(q) = {i \over 16 \pi^2 } (\ln{\Lambda^2 \over \mu^2} - 1 - \int_0^1dx \ln{\Delta \over \mu^2})
+</span> <span class="math inline">\mu</span> is an arbitrary number has unit of mass, which keeps the inside of <span class="math inline">\ln</span> pure number, but actually it’s not necessary and won’t effect our final answer.</p>
+</section>
+<section id="renormalized-chi-propagator" class="level2">
+<h2 class="anchored" data-anchor-id="renormalized-chi-propagator">Renormalized <span class="math inline">\chi</span> propagator</h2>
+<p>Take account of other loop diagrams (loops are aligned along the <span class="math inline">\chi</span> propagator and do not have loops inside them), the total propagator of <span class="math inline">\chi</span> is: <span class="math display">
+G_\chi(q) = \sum_{n=0}^{\infty}G_\chi^{(n)} ={i \over q^2 - i \lambda^2 I(q)}
+</span> One will notice the divergent part of <span class="math inline">I(q)</span>, which is <span class="math inline">\ln\Lambda^2</span>, does not depend on <span class="math inline">q</span>. That means if we introduce the exact mass term into <span class="math inline">\chi</span>’s Lagrangian, the divergents cancels out: <span class="math display">
+\mathcal{L} = \mathcal{L}_B - {1 \over 2}M^2\chi^2
+</span> Where <span class="math inline">M = {\lambda^2 \over 16 \pi^2} \ln{\Lambda^2 \over \mu^2} + M_0^2</span>. The introduce of <span class="math inline">M_0</span> is for keeping the original propagator under <span class="math inline">q = 0</span> limit.</p>
+<p>So the corrected propagator is: <span class="math display">
+G_\chi(q) = {i \over q^2 - {\lambda^2 \over 16 \pi^2}(\int_0^1dx\ln{\Delta \over \mu^2}+1)+M_0^2}
+</span> Apply constrain at <span class="math inline">G_\chi(0)</span> will allow us to get <span class="math inline">M_0^2 = {\lambda^2 \over 16 \pi^2}(\ln{m^2 \over \mu^2} + 1)</span>, then add back <span class="math inline">i\epsilon</span>: <span class="math display">
+G_\chi(q) = {i \over q^2 - {\lambda^2 \over 16 \pi^2}\int_0^1dx\ln(1-{x(1-x)q^2 \over m^2}) + i\epsilon}
+</span> This is <span class="math inline">\chi</span>’s “absolute” propagator. There is a mass-like term depending on <span class="math inline">q^2</span>, which indicates different behaviour under different energy.</p>
+<p>Now we’ve successfully solved the divergent introduced by the loop diagram, though <span class="math inline">-\lambda\phi\phi^*\chi</span> vertex and <span class="math inline">\phi</span> propagator can also generate divergent, however they can be treated using the same manner. If we try to do this under QED, gamma matrixes and tensor algebra will be invoded, making it more tedious.</p>
 
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -100,8 +100,22 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -192,7 +206,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cGh5c2ljcw==">physics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UU0=">QM <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cGh5c2ljcw==">physics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UUZU">QFT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UU0=">QM <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -206,26 +220,40 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1764077280825">
+<div class="quarto-post image-right" data-index="0" data-categories="cGh5c2ljcyUyQ1FGVA==" data-listing-date-sort="1761004800000" data-listing-file-modified-sort="1764085091442" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1083">
 <div class="thumbnail"><a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external">
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<img loading="lazy" src="./posts/RenormalizationOfScalarPropagatorInAToyModel/images/pic2.svg" class="thumbnail-image">
 
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external"></a>
+<a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external">Renormalization of scalar propagator in a toy model</a>
 </h3>
-<div class="delink listing-description"><a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external">
+<div class="listing-categories">
 
+<div class="listing-category" onclick="window.quartoListingCategory('cGh5c2ljcw=='); return false;">physics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UUZU'); return false;">QFT</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external">
+Consider a mass-full scalar field <span class="math inline">\phi</span> coupling with a mass-less scalar field <span class="math inline">\chi</span>, the toy model’s total Lagrangian can be written as: <span class="math display">
+\mathcal{L}_B = \partial_\mu \phi^*…</span>
 </a></div>
 </div>
 <div class="metadata">
 <a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external">
+<div class="listing-date">
+Oct 21, 2025
+</div>
+<div class="listing-author">
+Zhaose
+</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="cGh5c2ljcyUyQ1FN" data-listing-date-sort="1753920000000" data-listing-file-modified-sort="1764077280825" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="395">
+<div class="quarto-post image-right" data-index="1" data-categories="cGh5c2ljcyUyQ1FN" data-listing-date-sort="1753920000000" data-listing-file-modified-sort="1764085091439" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="395">
 <div class="thumbnail"><a href="./posts/BornApproximationFromPathIntegral/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/BornApproximationFromPathIntegral/cover.svg" class="thumbnail-image">

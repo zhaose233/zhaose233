@@ -117,7 +117,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -191,7 +191,9 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -221,7 +223,7 @@ K_1 &amp;= -i\int dt'\int dx \, \exp\{iS_0\} V(x(t')) \\
     &amp;= -i\int dt' \int dx' \, V(x') \int_{x(-T/2)={x_i}}^{x(t')={x'}} dx \, \exp\{iS_0\} \int_{x(t')={x'}}^{x(T/2)={x_f}} dx \, \exp\{iS_0\} \\
     &amp;= -i\int dt' \int dx' \, V(x') \, K_0(x_f,T/2;x',t') \, K_0(x',t';x_i,-T/2)
 \end{align*}
-</span> Here we’ve used a trick to break the propagator into two parts, which can be interpreted as the particle traveling to point <span class="math inline">x'</span> at time <span class="math inline">t'</span>, interacting with <span class="math inline">V</span>, then continues its propagation, just like a vertex in QFT Feynman diagrams.</p>
+</span> Here we’ve used a trick to break the propagator into two parts, which can be interpreted as the particle traveling to point <span class="math inline">x'</span> at time <span class="math inline">t'</span>, interacting with <span class="math inline">V</span>, then continues its propagation, just like a vertex in QFT Feynmann diagrams.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./cover.svg" class="img-fluid figure-img"></p>

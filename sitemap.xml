@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.zhaose.cyou/about.html</loc>
-    <lastmod>2025-11-25T13:28:00.825Z</lastmod>
+    <lastmod>2025-11-25T15:38:11.439Z</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.zhaose.cyou/posts/RenormalizationOfScalarPropagatorInAToyModel/index.html</loc>
+    <lastmod>2025-11-25T15:38:11.442Z</lastmod>
   </url>
   <url>
     <loc>https://blog.zhaose.cyou/index.html</loc>
-    <lastmod>2025-11-25T13:28:00.825Z</lastmod>
+    <lastmod>2025-11-25T15:38:11.439Z</lastmod>
   </url>
   <url>
     <loc>https://blog.zhaose.cyou/posts/BornApproximationFromPathIntegral/index.html</loc>
-    <lastmod>2025-11-25T13:28:00.825Z</lastmod>
+    <lastmod>2025-11-25T15:38:11.439Z</lastmod>
   </url>
 </urlset>
