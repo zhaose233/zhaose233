@@ -10,7 +10,7 @@
 <atom:link href="https://phy.zhaose.cyou/index.xml" rel="self" type="application/rss+xml"/>
 <description>Find all sorts of wired inspirations about physics here.</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Wed, 30 Jul 2025 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 31 Jul 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Born approximation from path integral</title>
   <dc:creator>Zhaose </dc:creator>
@@ -42,7 +42,7 @@
   <category>physics</category>
   <category>QM</category>
   <guid>https://phy.zhaose.cyou/posts/BornApproximationFromPathIntegral/</guid>
-  <pubDate>Wed, 30 Jul 2025 16:00:00 GMT</pubDate>
+  <pubDate>Thu, 31 Jul 2025 00:00:00 GMT</pubDate>
   <media:content url="https://phy.zhaose.cyou/posts/BornApproximationFromPathIntegral/cover.svg" medium="image" type="image/svg+xml"/>
 </item>
 </channel>
