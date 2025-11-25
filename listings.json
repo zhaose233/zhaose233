@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/RenormalizationOfScalarPropagatorInAToyModel/index.html",
       "/posts/BornApproximationFromPathIntegral/index.html"
     ]
   }
