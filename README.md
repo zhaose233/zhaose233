@@ -1,6 +1,6 @@
 ### This is Zhaose (朝色/あさいろ) 🌅
 
-### Check out my blog! 🫱 <https://phy.zhaose.cyou/>
+### Check out my blog! 🫱 <https://blog.zhaose.cyou/>
 
 ![GNU/Linux](https://img.shields.io/badge/-GNU/Linux-yellow?logo=linux&logoColor=white&style=for-the-badge)
 ![Arch Linux](https://img.shields.io/badge/-Arch%20Linux-1D99F3?logo=archlinux&logoColor=white&style=for-the-badge)

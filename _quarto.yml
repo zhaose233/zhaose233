@@ -10,6 +10,8 @@ website:
       - about.qmd
       - icon: github
         href: https://github.com/zhaose233
+      - icon: rss
+        href: index.xml
 #      - icon: twitter
 #        href: https://twitter.com
 format:
