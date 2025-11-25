@@ -3,7 +3,7 @@ project:
 
 website:
   description: "Find all sorts of wired inspirations about physics here."
-  site-url: https://phy.zhaose.cyou # you must change this appropriately for RSS feeds to work properly
+  site-url: https://blog.zhaose.cyou # you must change this appropriately for RSS feeds to work properly
   title: "Zhaose's Physics Notes"
   navbar:
     right:
