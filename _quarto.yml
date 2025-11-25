@@ -17,12 +17,9 @@ website:
 format:
   html:
     theme:
-    #  - brite
       - sketchy
       - theme.scss
-    #  - cosmo
-    #  - brand
-    # css: styles.css
-
+    toc: true
+    html-math-method: katex
 execute:
   freeze: auto

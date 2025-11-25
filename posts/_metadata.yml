@@ -9,5 +9,5 @@ title-block-banner: true
 
 format:
   html:
-    # toc: true
+    toc: true
     html-math-method: katex
