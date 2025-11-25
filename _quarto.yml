@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  description: "Find all sorts of wired inspirations about physics here."
+  site-url: https://phy.zhaose.cyou # you must change this appropriately for RSS feeds to work properly
+  title: "Zhaose's Physics Notes"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/zhaose233
+#      - icon: twitter
+#        href: https://twitter.com
+format:
+  html:
+    theme:
+    #  - brite
+      - sketchy
+      - theme.scss
+    #  - cosmo
+    #  - brand
+    # css: styles.css
+
+execute:
+  freeze: auto

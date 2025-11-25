@@ -1,0 +1,21 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/zhaose233
+    - icon: telegram
+      text: Telegram
+      href: https://t.me/zhaose
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/@zhaose2
+
+---
+
+Zhaose, an undergraduate student studying physcis at ECNU (East China Normal University), who is interested in Quantum Field Theory and Elementary Particle Physics.
+
+This blog is mainly focused on posting small calculations and projects about physcis.
