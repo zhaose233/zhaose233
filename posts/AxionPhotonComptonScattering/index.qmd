@@ -1,0 +1,148 @@
+---
+title: "Axion-photon Compton Scattering"
+author: "Zhaose"
+date: "2025-10-27"
+categories: [physics, QFT]
+image: "./images/dia2.svg"
+engine: julia
+---
+
+# The theory
+
+## Basic components of axion-photon interaction
+
+The effective axion-photon lagrangian can be written as:
+$$
+\mathcal{L}_{\alpha\gamma} = (\frac{1}{2} \partial_\mu a \, \partial^\mu a - \frac{1}{2}m^2 a^2)
++ (-\frac{1}{4} F_{\mu\nu} F^{\mu\nu}) - \frac{1}{4} g \, a \, F_{\mu\nu} \tilde{F}^{\mu\nu} 
+$$
+Here $\tilde{F}^{\mu\nu} = \frac{1}{2}\epsilon^{\mu\nu\rho\sigma}F_{\rho\sigma}$ is the dual of $F^{\mu\nu}$.
+Focus on the interaction term, break $F^{\mu\nu}$ out, we have:
+$$
+\begin{align*}
+-\frac{1}{4} g \, a \, F_{\mu\nu} \tilde{F}^{\mu\nu} &= 
+-\frac{1}{8} g \, a (\partial_\mu A_\nu - \partial_\nu A_\mu)
+\epsilon^{\mu\nu\rho\sigma} (\partial_\rho A_\sigma - \partial_\sigma A_\rho) \\
+&= - \frac{1}{2} g \, a \epsilon^{\mu\nu\rho\sigma} \partial_\mu A^\nu \partial_\rho A^\sigma
+\end{align*}
+$$
+Then we get the interaction vertex in the form of (in momentum space):
+$$
+i g \epsilon^{\mu\nu\rho\sigma} k^{(1)}_\mu k^{(2)}_\rho
+$$
+Here $k^{(1,2)}$ are the momentum of incoming and outcoming photons, amoung $k^{(1)}$ and $k^{(2)}$, one flows into the vertex and and the other one flows out.
+Now recall the propagator of scalar particles and photons, we have:
+
+- Axion propagator: $\frac{i}{k^2 - m^2 + i \epsilon}$
+- Photon propagator: $\frac{i \eta_{\mu\nu}}{k^2 + i \epsilon}$
+
+## Tree-level scattering amplitude
+
+For the lowest order of photon-axion Compton-like scattering, only two Feynman diagrams
+contribute, one s-channel and one u-channel:
+
+![s-channel](./images/dia1.svg)
+![u-channel](./images/dia2.svg)
+
+and we can write:
+$$
+\begin{align*}
+  i\mathcal{M}_s &= \epsilon^{\gamma}_{\nu}(k) \left( i g \epsilon^{\mu\nu\alpha\beta} k_\mu (k+p)_\alpha
+  \right) \frac{i \eta_{\beta\lambda}}{(k+p)^2} \left( i g \epsilon^{\delta\lambda\rho\sigma}
+  (k'+p')_\delta k'_\rho \right) \epsilon^{\gamma'}_{\sigma}(k') \\
+  \mathcal{M}_s &= - \frac{g^2}{(k+p)^2} \epsilon^{\gamma}_{\nu}(k) \epsilon^{\mu\nu\alpha\beta} k_\mu p_\alpha
+   \eta_{\beta\lambda} \epsilon^{\delta\lambda\rho\sigma}
+  p'_\delta k'_\rho \epsilon^{\gamma'}_{\sigma}(k')
+\end{align*}
+$$
+along with:
+$$
+\begin{align*}
+  i\mathcal{M}_u &= \epsilon^{\gamma}_{\nu}(k) \left( i g \epsilon^{\mu\nu\alpha\beta} k_\mu (k-p')_\alpha
+  \right) \frac{i \eta_{\beta\lambda}}{(k-p')^2} \left( i g \epsilon^{\delta\lambda\rho\sigma}
+  (k'-p)_\delta k'_\rho \right) \epsilon^{\gamma'}_{\sigma}(k') \\
+  \mathcal{M}_u &= - \frac{g^2}{(k-p')^2} \epsilon^{\gamma}_{\nu}(k) \epsilon^{\mu\nu\alpha\beta} k_\mu p'_\alpha
+   \eta_{\beta\lambda} \epsilon^{\delta\lambda\rho\sigma}
+  p_\delta k'_\rho \epsilon^{\gamma'}_{\sigma}(k')
+\end{align*}
+$$
+Then the total scattering amplitude is:
+$$
+\begin{align*}
+\mathcal{M} &= \mathcal{M}_s + \mathcal{M}_u \\
+&= 
+- g^2 \epsilon^{\gamma}_{\nu}(k) k_{\mu} \left( \frac{p_\alpha p'_\delta}{(k+p)^2} + \frac{p'_\alpha p_\delta}{(k-p')^2}
+\right) k'_{\rho} \epsilon^{\gamma'}_{\sigma} 
+(\epsilon^{\beta\mu\nu\alpha} \eta_{\beta\lambda} \epsilon^{\lambda\delta\rho\sigma})
+\end{align*}
+$$
+Contract and simplify this impossible expression by FORM script and complete spin sum, we can finally get:
+$$
+\left| \mathcal{M} \right|^2_{all} = g^4 \left\{ \frac{m^8}{16}(\frac{1}{s} + \frac{1}{u})^2 
+- \frac{m^4}{8}(\frac{u}{s} + \frac{s}{u} - 6) - m^2 (s + u) + \frac{5}{16}(s + u)^2 \right\}
+$$
+This result is completely symmetric between $s$ and $u$. And, at the limit of $k \to 0$, $\left| \mathcal{M} \right|^2_{all} = 0$, which is correct since the interaction vertex is proportional to photon momentum.
+
+To understand this result more intuitively, we can draw some diagrams using julia:
+```{julia}
+#| label: install-pkg
+#| output: false
+using Pkg
+Pkg.add("Plots")
+```
+```{julia}
+#| label: fig-plots
+#| fig-cap: 'Plots of $|M|^2$ - $\theta$ under different $ε$'
+#| fig-subcap:
+#|   - '$\varepsilon = 10^{-5}$'
+#|   - '$\varepsilon = 10^{-4}$'
+#| layout-ncol: 2
+#| warning: false
+using Plots
+
+const m = 1e-4::Float64
+
+function dot_p(x, y)
+  prod = - x[1] * y[1] + sum([x[n] * y[n] for n in 2:4])
+  return prod
+end
+
+function get_M2(s, u)
+  m2 = + m^8 / 16 * (1/s + 1/u)^2 -
+         m^4 / 8  * (u/s + s/u - 6) -
+         m^2   *    (s + u) +
+         5 / 16  *  (s + u)^2
+  return m2 
+end
+
+function get_εp(ε, θ)
+  εp = ε * m / (m + ε * (1 - cos(θ)))
+  return εp
+end
+
+function get_M2s(ε, θs)
+  M2s = Vector{Float64}(undef, length(θs))
+  Threads.@threads for i in 1:length(θs)
+    θ = θs[i]
+    εp = get_εp(ε, θ)
+    s = 2 * ε * m + m^2
+    u = - 2 * εp * m + m^2
+
+    M2s[i] = get_M2(s, u)
+  end
+  return M2s
+end
+
+θs = 0:1e-4:π
+ε1 = 1e-5
+M2s1 = get_M2s(ε1, θs)
+ε2 = 1e-4
+M2s2 = get_M2s(ε2, θs)
+#ε3 = 1e-1
+#M2s3 = get_M2s(ε3, θs)
+
+display(plot(θs, M2s1, legend=false))
+display(plot(θs, M2s2, legend=false))
+#display(plot(θs, M2s3, lengend=false))
+```
+Something interesting is happening. When $\varepsilon >= m_a/2$, there will always be a "peak" (infinite pole) in our scattering amplitude. This is actually because the axion can decay into 2 photons, and for an on-shell photon, it can travel for infinitely long time before interaction with another photon, which makes our scattering amplitude infinite. If we want to integral over $\theta$ to get total cross-section, we need to omit a small region around where the singularity appears.

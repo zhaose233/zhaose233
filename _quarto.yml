@@ -23,5 +23,7 @@ format:
       - styles.css
     toc: true
     html-math-method: katex
-execute:
-  freeze: auto
+    code-fold: true
+#    code-tools: true
+# execute:
+#   freeze: auto
