@@ -25,5 +25,5 @@ format:
     html-math-method: katex
     code-fold: true
 #    code-tools: true
-# execute:
-#   freeze: auto
+execute:
+  freeze: auto
