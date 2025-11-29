@@ -84,6 +84,7 @@ $$
 This result is completely symmetric between $s$ and $u$. And, at the limit of $k \to 0$, $\left| \mathcal{M} \right|^2_{all} = 0$, which is correct since the interaction vertex is proportional to photon momentum.
 
 # Numerical results
+
 To understand this result more intuitively, we can draw some diagrams using julia:
 ```{julia}
 #| label: install-pkg
