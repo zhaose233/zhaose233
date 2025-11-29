@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/AxionPhotonComptonScattering/index.html",
       "/posts/RenormalizationOfScalarPropagatorInAToyModel/index.html",
       "/posts/BornApproximationFromPathIntegral/index.html"
     ]
