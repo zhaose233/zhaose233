@@ -97,6 +97,7 @@ Pkg.add("Plots")
 #|   - '$\varepsilon = 10^{-5}$'
 #|   - '$\varepsilon = 10^{-4}$'
 #| layout-ncol: 2
+#| results: hide
 #| warning: false
 using Plots
 
