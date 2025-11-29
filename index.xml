@@ -410,9 +410,6 @@ font-style: inherit;">#display(plot(θs, M2s3, lengend=false))</span></span></co
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-plots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
-<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<pre><code>GKS: cannot open display - headless operation mode active</code></pre>
-</div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-plots" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-plots-1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
@@ -425,8 +422,6 @@ font-style: inherit;">#display(plot(θs, M2s3, lengend=false))</span></span></co
 </figure>
 </div>
 </div>
-</div>
-<div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-plots" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-plots-2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
