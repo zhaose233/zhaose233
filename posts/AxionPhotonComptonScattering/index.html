@@ -240,6 +240,7 @@ window.Quarto = {
   <li><a href="#basic-components-of-axion-photon-interaction" id="toc-basic-components-of-axion-photon-interaction" class="nav-link" data-scroll-target="#basic-components-of-axion-photon-interaction">Basic components of axion-photon interaction</a></li>
   <li><a href="#tree-level-scattering-amplitude" id="toc-tree-level-scattering-amplitude" class="nav-link" data-scroll-target="#tree-level-scattering-amplitude">Tree-level scattering amplitude</a></li>
   </ul></li>
+  <li><a href="#numerical-results" id="toc-numerical-results" class="nav-link" data-scroll-target="#numerical-results">Numerical results</a></li>
   </ul>
 </nav>
     </div>
@@ -306,6 +307,10 @@ i g \epsilon^{\mu\nu\rho\sigma} k^{(1)}_\mu k^{(2)}_\rho
 \left| \mathcal{M} \right|^2_{all} = g^4 \left\{ \frac{m^8}{16}(\frac{1}{s} + \frac{1}{u})^2
 - \frac{m^4}{8}(\frac{u}{s} + \frac{s}{u} - 6) - m^2 (s + u) + \frac{5}{16}(s + u)^2 \right\}
 </span> This result is completely symmetric between <span class="math inline">s</span> and <span class="math inline">u</span>. And, at the limit of <span class="math inline">k \to 0</span>, <span class="math inline">\left| \mathcal{M} \right|^2_{all} = 0</span>, which is correct since the interaction vertex is proportional to photon momentum.</p>
+</section>
+</section>
+<section id="numerical-results" class="level1">
+<h1>Numerical results</h1>
 <p>To understand this result more intuitively, we can draw some diagrams using julia:</p>
 <div id="install-pkg" class="cell" data-execution_count="1">
 <details class="code-fold">
@@ -401,7 +406,6 @@ Figure&nbsp;1: Plots of <span class="math inline">|M|^2</span> - <span class="ma
 <p>Something interesting is happening. When <span class="math inline">\varepsilon &gt;= m_a/2</span>, there will always be a “peak” (infinite pole) in our scattering amplitude. This is actually because the axion can decay into 2 photons, and for an on-shell photon, it can travel for infinitely long time before interaction with another photon, which makes our scattering amplitude infinite. If we want to integral over <span class="math inline">\theta</span> to get total cross-section, we need to omit a small region around where the singularity appears.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
