@@ -127,4 +127,5 @@ For this portal configuration, we will get the following result:
 ![G Field](./images/fig1.svg)
 The gravitational field between the portals is quite weak, the field is identical to what one would see if one places 2 connected metal plates between two large charged metal plates! Two metal plates will share the same potential, and for a symmetrical system like this, they will share the potential of zero, and will shield out the field. 
 
+
 But portal can face different directions, if we flip one portal's orientation, will the field stay the same? Actually it will. If one go though it carefully, it is not hard to imagine the portal just curves our experimental plane, it pulls up to segments on the plane and stick them together, make it a ring growing out of the flat paper. No matter how you twist the way you stick them together, the sticky boundary will topologically be at the center between the upper and lower boundary, which make the field identical.
