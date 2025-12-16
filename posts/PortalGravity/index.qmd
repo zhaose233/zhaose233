@@ -1,0 +1,128 @@
+---
+title: "Gravity With Portal"
+author: "Zhaose"
+date: "2025-12-16"
+categories: [physics, computational, classical, fun]
+# image: "./images/dia2.svg"
+engine: julia
+---
+
+Recently, I saw [this interesting youtube video](https://www.youtube.com/watch?v=DydIhwLrbMk), at the first glance, I realized it is just solving the classical gravitational equation maybe under a specific boundary condition? It's too fun to not try to do it by myself first, then watch the full video. So I tried to qucikly simulate it using Julia, and analyze the result.
+
+To simplify the problem, let there be no mass in the space, gravitational field satisfies Laplace equation:
+$$
+\nabla^2 \varphi = 0
+$$
+Consider a box, we set gravitational potential of the top to 0, the bottom to 100, and apply periodic boundary on left and right. This setting itself is just like what we do when we calculate the electrical field between two charged infinitely large metal plates, they satisfy the same equation so for classical gravity they do no different.
+One can use finite elements method or finite difference method to calculate this simple question, to keep it simple I decided to just write a simple finite difference equation constructor in Julia. Then, the portal is actually just remapping the neighbors. Laplace equation is local, for those grid which is next to the portal, we trace their neighbor though the portal, very naive & simple.
+```{julia}
+#| label: portal
+#| eval: false
+using LinearAlgebra
+using SparseArrays
+using Plots
+
+const X_GRIDS     = 1000
+const Y_GRIDS     = 1000
+const GRID_WIDTH  = 1
+
+const PORTAL_1    = CartesianIndices((350:650, 150:150))
+const PORTAL_2    = CartesianIndices((350:650, 151:151))
+const PORTAL_3    = CartesianIndices((350:650, 850:850))
+const PORTAL_4    = CartesianIndices((350:650, 851:851))
+
+const PAIR_11      = (PORTAL_1, PORTAL_4)
+const PAIR_12      = (PORTAL_4, PORTAL_1)
+const PAIR_21      = (PORTAL_2, PORTAL_3)
+const PAIR_22      = (PORTAL_3, PORTAL_2)
+
+const PORTAL_PAIRS = [PAIR_11, PAIR_12, PAIR_21, PAIR_22]
+
+function build_portal_map()
+    mapping = Dict{CartesianIndex{2}, CartesianIndex{2}}()
+
+    pairs = [
+        (PORTAL_1, PORTAL_4),
+        (PORTAL_4, PORTAL_1),
+        (PORTAL_2, PORTAL_3),
+        (PORTAL_3, PORTAL_2)
+    ]
+    
+    for (src_range, dst_range) in pairs
+        for (src, dst) in zip(src_range, dst_range)
+            mapping[src] = dst
+        end
+    end
+    return mapping
+end
+
+const PORTAL_MAP = build_portal_map()
+function boundary1((i, j))
+  if j < 1 
+    return 0
+  elseif j > Y_GRIDS
+    return 100
+  else
+    return nothing
+  end
+end
+
+function periodic_x(x)
+  if x < 1
+    return X_GRIDS
+  elseif x > X_GRIDS
+    return 1
+  else
+    return x
+  end
+end
+
+cis = CartesianIndices((1:X_GRIDS, 1:Y_GRIDS))
+ids = LinearIndices(cis)
+n_grids = length(ids)
+
+function fill_eq()
+  I = Int[]
+  J = Int[]
+  V = Float64[]
+  ρs = fill(0.0, n_grids)
+  for ci in cis
+    x, y = Tuple(ci)
+    push!(I, ids[x, y])
+    push!(J, ids[x, y])
+    push!(V, 4.0)
+
+    for (i, j) in ((x+1, y), (x-1, y), (x, y+1), (x, y-1))
+      
+      b1 = boundary1((i, j))
+      if !isnothing(b1)
+        ρs[ids[x, y]] += b1
+        continue
+      end
+
+      i = periodic_x(i)
+
+      cid = CartesianIndex(i, j)
+      if haskey(PORTAL_MAP, cid)
+        i, j = Tuple(PORTAL_MAP[cid])
+      end
+      push!(I, ids[x,y])
+      push!(J, ids[i, j])
+      push!(V, -1.0)
+    end
+  end
+  m = sparse(I, J, V, n_grids, n_grids)
+  return m, ρs
+end
+
+function get_result()
+  A, b = fill_eq()
+  u = A \ b
+  u_grid = reshape(u, X_GRIDS, Y_GRIDS)
+  return u_grid
+end
+```
+For this portal configuration, we will get the following result:
+![G Field](./images/fig1.svg)
+The gravitational field between the portals is quite weak, the field is identical to what one would see if one places 2 connected metal plates between two large charged metal plates! Two metal plates will share the same potential, and for a symmetrical system like this, they will share the potential of zero, and will shield out the field. 
+But portal can face different directions, if we flip one portal's orientation, will the field stay the same? Actually it will. If one go though it carefully, it is not hard to imagine the portal just curves our experimental plane, it pulls up to segments on the plane and stick them together, make it a ring growing out of the flat paper. No matter how you twist the way you stick them together, the sticky boundary will topologically be at the center between the upper and lower boundary, which make the field identical.

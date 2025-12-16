@@ -148,4 +148,4 @@ display(plot(θs, M2s1, legend=false))
 display(plot(θs, M2s2, legend=false))
 #display(plot(θs, M2s3, lengend=false))
 ```
-Something interesting is happening. When $\varepsilon >= m_a/2$, there will always be a "peak" (infinite pole) in our scattering amplitude. This is actually because the axion can decay into 2 photons, and for an on-shell photon, it can travel for infinitely long time before interaction with another photon, which makes our scattering amplitude infinite. If we want to integral over $\theta$ to get total cross-section, we need to omit a small region around where the singularity appears.
+Something interesting is happening. When $\varepsilon >= m_a/2$, there will always be a "peak" (infinite pole) in our scattering amplitude. This is actually because the axion can decay into 2 photons, and for an on-shell photon, it can travel for infinitely long time before interacting with another photon, which makes our scattering amplitude infinite. If we want to integral over $\theta$ to get total cross-section, we need to omit a small region around where the singularity appears.
