@@ -16,7 +16,7 @@
 ![GNU Emacs](https://img.shields.io/badge/-GNU_Emacs-7F5AB6?style=for-the-badge&logo=gnuemacs&logoColor=white)
 
 ![ZH](https://img.shields.io/badge/ZH-Chinese-purple?style=for-the-badge&logoColor=white)
-![JP](https://img.shields.io/badge/JP-Japanese-pink?style=for-the-badge&logoColor=white)
+![JA](https://img.shields.io/badge/JA-Japanese-pink?style=for-the-badge&logoColor=white)
 ![ENG](https://img.shields.io/badge/EN-Enlgish-blue?style=for-the-badge&logoColor=white)
 
 
