@@ -3,7 +3,7 @@ title: "Simulating Harmonic Oscillator on a Lattice"
 author: "Zhaose"
 date: "2026-01-18"
 categories: [physics, computational, path-integral, QM]
-# image: "./images/dia2.svg"
+image: "./images/fig.svg"
 engine: julia
 julia:
   exeflags: ["-t 16"]
@@ -200,12 +200,12 @@ function theo_fun(t)
   return (exp(- 1.0 * t) + exp(- 1.0 * (10.0 - t))) / norm
 end
 
-p1 = plot(ts , x2_normed, label = "sim", color = :black, xlabel = "Time", ylabel="Correlation")
+p1 = plot(ts , x2_normed, label = "sim", color = :black, xlabel = "Time", ylabel="Correlation", framestyle = :box)
 plot!(p1, ts, theo_fun, color = :red, label="theo", ls=:dash)
 
 x2_samp = x2_normed[1:15]
 t_samp  = ts[1:15]
-p2 = plot(t_samp , log.(x2_samp), label = "sim", color = :black, xlabel = "Time", ylabel="ln(Correlation)")
+p2 = plot(t_samp , log.(x2_samp), label = "sim", color = :black, xlabel = "Time", ylabel="ln(Correlation)", framestyle = :box)
 plot!(p2, t_samp, (t) -> log(theo_fun(t)), color = :red, label="theo", ls=:dash)
 
 plot(p1, p2, size=(800,400))
