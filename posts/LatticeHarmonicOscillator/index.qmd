@@ -36,7 +36,7 @@ $$
 =& \sum_{a,b} e^{-i H_a (T - \Delta t)} e^{-i H_b \Delta t} \left|\braket{0|\mathbf{x}|1}\right|^2 \\
 \end{align*}
 $$
-Here we just be aware of that different energy eigenstates are orthogonal. To keeps things simple, if we only consider the leading term, which is $a,b = 0,1$, then we have
+Here we just be aware of that different energy eigenstates are orthogonal. To keep things simple, if we only consider the leading term, which is $a,b = 0,1$, then we have
 $$
 \begin{align*}
 =& \int dq \bra{q, T} \mathbf{x}(t_2) \mathbf{x}(t_1) \ket{q, 0} \\
