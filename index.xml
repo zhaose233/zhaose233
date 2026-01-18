@@ -10,7 +10,7 @@
 <atom:link href="https://blog.zhaose.cyou/index.xml" rel="self" type="application/rss+xml"/>
 <description>Find all sorts of wired inspirations about physics here.</description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Sat, 17 Jan 2026 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 18 Jan 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Simulating Harmonic Oscillator on a Lattice</title>
   <dc:creator>Zhaose </dc:creator>
@@ -830,7 +830,7 @@ font-style: inherit;">400</span>))</span></code></pre></div></div>
   <category>path-integral</category>
   <category>QM</category>
   <guid>https://blog.zhaose.cyou/posts/LatticeHarmonicOscillator/</guid>
-  <pubDate>Sat, 17 Jan 2026 16:00:00 GMT</pubDate>
+  <pubDate>Sun, 18 Jan 2026 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Gravity With Portal</title>
@@ -1393,7 +1393,7 @@ font-style: inherit;">end</span></span></code></pre></div></div>
   <category>classical</category>
   <category>fun</category>
   <guid>https://blog.zhaose.cyou/posts/PortalGravity/</guid>
-  <pubDate>Mon, 15 Dec 2025 16:00:00 GMT</pubDate>
+  <pubDate>Tue, 16 Dec 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Axion-photon Compton Scattering</title>
@@ -1838,7 +1838,7 @@ Figure&nbsp;1: Plots of <img src="https://latex.codecogs.com/png.latex?%7CM%7C%5
   <category>physics</category>
   <category>QFT</category>
   <guid>https://blog.zhaose.cyou/posts/AxionPhotonComptonScattering/</guid>
-  <pubDate>Fri, 28 Nov 2025 16:00:00 GMT</pubDate>
+  <pubDate>Sat, 29 Nov 2025 00:00:00 GMT</pubDate>
   <media:content url="https://blog.zhaose.cyou/posts/AxionPhotonComptonScattering/images/dia2.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
@@ -1906,7 +1906,7 @@ Figure&nbsp;1: Plots of <img src="https://latex.codecogs.com/png.latex?%7CM%7C%5
   <category>physics</category>
   <category>QFT</category>
   <guid>https://blog.zhaose.cyou/posts/RenormalizationOfScalarPropagatorInAToyModel/</guid>
-  <pubDate>Mon, 20 Oct 2025 16:00:00 GMT</pubDate>
+  <pubDate>Tue, 21 Oct 2025 00:00:00 GMT</pubDate>
   <media:content url="https://blog.zhaose.cyou/posts/RenormalizationOfScalarPropagatorInAToyModel/images/pic2.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
@@ -1940,7 +1940,7 @@ Figure&nbsp;1: Plots of <img src="https://latex.codecogs.com/png.latex?%7CM%7C%5
   <category>physics</category>
   <category>QM</category>
   <guid>https://blog.zhaose.cyou/posts/BornApproximationFromPathIntegral/</guid>
-  <pubDate>Wed, 30 Jul 2025 16:00:00 GMT</pubDate>
+  <pubDate>Thu, 31 Jul 2025 00:00:00 GMT</pubDate>
   <media:content url="https://blog.zhaose.cyou/posts/BornApproximationFromPathIntegral/cover.svg" medium="image" type="image/svg+xml"/>
 </item>
 </channel>
