@@ -1,0 +1,213 @@
+---
+title: "Simulating Harmonic Oscillator on a Lattice"
+author: "Zhaose"
+date: "2026-01-18"
+categories: [physics, computational, path-integral, QM]
+# image: "./images/dia2.svg"
+engine: julia
+julia:
+  exeflags: ["-t 16"]
+---
+
+# Concepts
+
+For a harmonic oscillator, the lagrangian can be written as:
+$$
+L = \frac{1}{2} m \dot{x}^2 - \frac{1}{2} m \omega^2 x^2
+$$
+The two-point correlation function then, is
+$$
+D_q(t_1, t_2) = \bra{q, T} \mathbf{x}(t_2) \mathbf{x}(t_1) \ket{q, 0}
+$$
+If we transfer it into Shördinger picture, and insert sets of energy eigenstates, we have
+$$
+\begin{align*}
+& \bra{q, T} \mathbf{x}(t_2) \mathbf{x}(t_1) \ket{q, 0} \\
+=& \bra{q} e^{-i \mathbf{H} (T - t_2)} \mathbf{x} e^{-i \mathbf{H} (t_2 - t_1)} \mathbf{x} e^{-i \mathbf{H} t_1} \ket{q} \\
+=& \sum_{a,b,c,d} \bra{q} e^{-i \mathbf{H} (T - t_2)} \ket{a} \bra{a} \mathbf{x} \ket{b} \bra{b} e^{-i \mathbf{H}(t_2 - t_1)}  \ket{c} \bra{c} \mathbf{x} \ket{d} \bra{d} e^{-i \mathbf{H} t_1} \ket{q} \\
+=& \sum_{a,b,d} e^{-i H_a (T - t_2)} e^{-i H_d t_1} e^{-i H_b (t_2 - t_1)} \braket{d|q} \braket{q|a} \braket{a|\mathbf{x}|b} \braket{b|\mathbf{x}|d}
+\end{align*}
+$$
+It kinda looks like a mess. However, when we do simulation, we always impose the periodic boundary, so we should also do it here, then we have
+$$
+\begin{align*}
+=& \int dq \sum_{a,b,d} e^{-i H_a (T - t_2)} e^{-i H_d t_1} e^{-i H_b (t_2 - t_1)} \braket{d|q} \braket{q|a} \braket{a|\mathbf{x}|b} \braket{b|\mathbf{x}|d} \\
+=& \sum_{a,b} e^{-i H_a (T - t_2 + t_1)} e^{-i H_b (t_2 - t_1)} \braket{a|\mathbf{x}|b} \braket{b|\mathbf{x}|d} \\
+=& \sum_{a,b} e^{-i H_a (T - \Delta t)} e^{-i H_b \Delta t} \left|\braket{0|\mathbf{x}|1}\right|^2 \\
+\end{align*}
+$$
+Here we just be aware of that different energy eigenstates are orthogonal. To keeps things simple, if we only consider the leading term, which is $a,b = 0,1$, then we have
+$$
+\begin{align*}
+=& \int dq \bra{q, T} \mathbf{x}(t_2) \mathbf{x}(t_1) \ket{q, 0} \\
+=& e^{-i H_0 T} \left|\braket{0|\mathbf{x}|1}\right|^2 (e^{-i \Delta H \Delta t} + e^{-i \Delta H (T - \Delta t)})
+\end{align*}
+$$
+Since the expectation of $\mathbf{x}$ is zero, some terms vanish. Note that the only non-constant here is $\Delta t$, which means
+$$
+\int_{PB} Dx(t) \; x(t_1) x(t_2) exp\{i \int dt L \} \\
+\propto e^{-i \Delta H \Delta t} + e^{-i \Delta H (T - \Delta t)}
+$$
+Let $t \to -i \tau$, then we have
+$$
+\int_{PB} Dx(\tau) \; x(\tau_1) x(\tau_2) exp\{- \int d\tau L_E \} \\
+\propto e^{- \Delta H \Delta \tau} + e^{- \Delta H (\Tau - \Delta \tau)}
+$$ {#eq-1}
+Here
+$$
+L_E = \frac{1}{2} m (\frac{dx}{d\tau})^2 + \frac{1}{2} m \omega^2 x^2
+$$ {#eq-2}
+
+# Simulation
+If we can write some code to calculate @eq-1, then we can extract $\Delta H$ from it, by addressing its relation with $\Delta \tau$.
+Calculating such a path-integral may seem to be impossible, however, doing MC simulation, we first simply generate a lot of "paths", make sure their weight
+is proportional to $exp\{-S_E\}$, then perform measurements on those paths, get the mean of all measurements, then we will have the approximation
+of @eq-1.
+
+First, make our x dimension-free might be a good idea, although it's not necessary here.
+$$
+x = a \hat{x} \to \hat{\omega} = \omega \times a
+$$
+Then define a struct to hold all essential variables, write the function to calculate the change of action after imposing a perturbation at $x(\tau)$
+```{julia}
+#| label: install-pkg
+#| output: false
+using Pkg
+Pkg.add("Plots")
+```
+```{julia}
+#| label: prepare
+#| output: false 
+using Base.Threads
+using Random
+using Plots
+
+struct World
+  xs::Vector{Float64}
+  lt::Int
+  m::Float64
+  ω::Float64
+  pt::Float64
+  rb::Vector{Any}
+end
+
+function gen_world(lt, m, ω, pt)
+  red_t = filter(isodd, 1:lt)
+  black_t = filter(iseven, 1:lt)
+  return World(zeros(lt), lt, m, ω, pt, [red_t, black_t])
+end
+
+function get_action_diff(w, t, new_x)
+  lt = w.lt
+  old_x = w.xs[t]
+
+  act_diff = 0.5 * w.m * w.ω^2 * (new_x^2 - old_x^2)
+  for t_nb in mod1.((t-1, t+1), lt)
+    act_diff += 0.5 * w.m * (new_x - old_x) * (new_x + old_x - 2 * w.xs[t_nb])
+  end
+
+  return act_diff
+end
+```
+Here we separate points in to groups so we can update each group in parallel. Then is how to update the path.
+```{julia}
+#| label: updates
+#| output: false
+function update_xs!(w, t)
+  new_x = w.xs[t] + (rand() - 0.5) * 2 * w.pt
+  
+  act_diff = get_action_diff(w, t, new_x)
+  if act_diff >= 0
+    if exp(- act_diff) < rand()
+      return false
+    end
+  end
+
+  w.xs[t] = new_x
+  return true
+end
+
+function sweep_w!(w; save_accept=false)
+  accepts = Atomic{Int}(0)
+  @threads for t in w.rb[1]
+    acc = update_xs!(w, t)
+    if save_accept
+      atomic_add!(accepts, Int(acc))
+    end
+  end
+  @threads for t in w.rb[2]
+    acc = update_xs!(w, t)
+    if save_accept
+      atomic_add!(accepts, Int(acc))
+    end
+  end
+  return accepts[] / w.lt
+end
+```
+Here `exp(- act_diff) < rand()` make sure that the weight is properly generated. However, when running the simulation, we need to tune how much perturbtion is made each time, to keep the accept rate to about 1/2.
+
+And to measure, we iterate all path points and take the mean, for each $\Delta t$
+```{julia}
+#| label: measure
+#| output: false
+function measure_x2(w)
+  x2_t = zeros(w.lt)
+  for t_0 in 1:w.lt
+    @threads for Δt in 0:(w.lt - 1)
+      x2_t[Δt + 1] += w.xs[t_0] * w.xs[mod1(t_0 + Δt, w.lt)]
+    end
+  end
+  x2_t = x2_t ./ w.lt
+  return x2_t
+end
+```
+
+Now the only thing left is to run the simulation and compare the result with our theoretical result, @eq-1.
+```{julia}
+#| label: runsim
+#| output: false
+w = gen_world(100, 1.0, 1.0 * 0.1, 2.0)
+
+n_heat = 1000
+println("HEATING...")
+acc = 0
+for i in 1:n_heat
+  acc += sweep_w!(w; save_accept=true)
+end
+println("ACCEPTED RATE: $(acc / n_heat)")
+
+n_measure = 1000
+
+x2_t = zeros(w.lt)
+println("MEASURING...")
+for i in 1:n_measure
+  for j in 1:1000
+    sweep_w!(w)
+  end
+  x2_t .+= measure_x2(w)
+end
+x2_t ./= n_measure
+push!(x2_t, x2_t[1])
+```
+Analyze the result, we have
+```{julia}
+#| label: plots
+x2_normed = x2_t ./ sum(x2_t) .* 10.0
+
+ts = (0:(w.lt)) ./ 10.0
+function theo_fun(t)
+  norm = 2.0 - exp(-10.0)
+  return (exp(- 1.0 * t) + exp(- 1.0 * (10.0 - t))) / norm
+end
+
+p1 = plot(ts , x2_normed, label = "sim", color = :black, xlabel = "Time", ylabel="Correlation")
+plot!(p1, ts, theo_fun, color = :red, label="theo", ls=:dash)
+
+x2_samp = x2_normed[1:15]
+t_samp  = ts[1:15]
+p2 = plot(t_samp , log.(x2_samp), label = "sim", color = :black, xlabel = "Time", ylabel="ln(Correlation)")
+plot!(p2, t_samp, (t) -> log(theo_fun(t)), color = :red, label="theo", ls=:dash)
+
+plot(p1, p2, size=(800,400))
+```
+Note that only the slope in the second picture matters, which means it fits really well. So through this MC simulation, we can extract the difference between the first excited state and the groud state, which is $\hbar \omega$ in this case. More uses can be seen in Lattice-QCD, etc.
