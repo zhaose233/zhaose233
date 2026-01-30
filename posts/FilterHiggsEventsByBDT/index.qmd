@@ -1,0 +1,74 @@
+---
+title: "Filter Events by BDT for Higgs in LHC"
+author: "Zhaose"
+date: "2026-01-31"
+categories: [physics, experiment]
+# image: "cover.svg"
+---
+
+This is the final project of the subatomic physics online course hosted by MIT which I've attended this term. An easy but somehow interesting project. It's basically the original version I submitted, with tiny adjustments.
+
+With out further data selection @fig-og-plot, the data is not significant comparing to the background. Around 125GeV, the data seems to be random distributed.
+
+![unfiltered data plot](./images/og-plot.svg){#fig-og-plot}
+
+# Basic Object Selection \& Z candidates
+
+After implying momentum \& $\eta$ cut, one should also filter out those events with wrong lepton pair, which does not
+satisfy charge conservation. 
+
+Then pick the first one among four leptons, pair it with one of, if not the only, other
+leptons which is its anti-particle counterpart. After this process, one or two pair(s) of Z boson candidates can be
+constructed. However, we should choose the one pair which among the pair there is one Z boson as close to on-shell
+as possible.
+
+After constructing and choosing the best fitting Z boson pairs, one can draw the distribution of constructed 
+Z boson mass, separating by decay flavor or maximum/minimum in the pair. This leads to @fig-flavor-Z (by flavor) and @fig-mass-Z (by energy).
+
+![$m_Z$ distribution separated by decay flavor](./images/flavor_Z.svg){#fig-flavor-Z}
+
+![$m_Z$ distribution separated by whether they are the larger one or not](./images/high_low_Z.svg){#fig-mass-Z}
+
+# Find \& apply the best simple cut
+
+By selecting the MC events which $m_{4l}$ fits between $119GeV$ and 131GeV, one can, for each event,
+construct a Z boson pair based on the method we have mentioned before. The constructed Z boson pair has
+two Z boson masses, one is $Z_1$, which is closer to $m_Z$ (on-shell mass), comparing to the other one $Z_2$.
+
+A cut confines $m_{Z_1}$ and $m_{Z_2}$ in a specific region on the $(m_{Z_1},m_{Z_2})$ plane. Four parameters
+are needed, implies that
+$$
+C_1 < m_{Z_1} < C_2,\; C_3 < m_{Z_2} < C_4, 
+$$
+By sweeping through the parameter space, which is chosen to be $20-35, 95-115, 10-24, 45-68$, the optimal combination
+is $C = (26, 99, 14, 64)$.
+
+By using $C = (26, 99, 14, 64)$, among the **71190** MC events which passed the cut, **63157** events are $H \to 4l$ events, the significance value is **2.341**.
+
+By applying this fine-tuned cut to the MC events and real data, one can improve the diagram of the distribution of $m_{4l}$,
+to find Higgs signal. The result is shown in @fig-refined.
+
+![$m_{4l}$ distribution after filtering out irrelevant events by simple cut](./images/refined.svg){#fig-refined}
+
+# Filtering events by BDT classifier
+
+The ML library used is `EvoTrees.jl`. Here we are using a decision tree with depth of 4, trained 200 rounds, the loss algorithm is Logarithmic Loss.
+
+For training, we split the MC events satisfied previous constraints in half. Half of the
+events are used for training, and the other half are used to find the optimal threshold. With this configuration,
+70312 MC events passed, with 62604 Higgs events among them, and the significance
+is 2.341.
+
+Using BDT with Z boson masses as input features yielded a result similar to the rectangular cut method.
+This similarity is expected, the kinematics of $H \to 4l$ and $ZZ$ are overlapping,
+which means BDT, which can be seen as offering a more fine-tuned cutting boundary, still won't be able to tell them apart.
+The BDT could potentially offer greater improvements if additional kinematic variables is included.
+
+The result with BDT filtering is shown in @fig-refined-bdt.
+
+![$m_{4l}$ distribution after filtering out irrelevant events by BDT](./images/refined_bdt.svg){#fig-refined-bdt}
+
+Through the whole data set we do see some differences between BDT and rectangular cut. BDT does not filter out much
+when $m_{4l}$ is too large, but this does not affect our result about Higgs boson.
+
+All Julia and LaTeX source code can be found at [this repo](https://github.com/zhaose233/subatomic-final-project).
