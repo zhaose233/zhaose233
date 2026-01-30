@@ -10,7 +10,100 @@
 <atom:link href="https://blog.zhaose.cyou/index.xml" rel="self" type="application/rss+xml"/>
 <description>Find all sorts of wired inspirations about physics here.</description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Sun, 18 Jan 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 31 Jan 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Filter Events by BDT for Higgs in LHC</title>
+  <dc:creator>Zhaose </dc:creator>
+  <link>https://blog.zhaose.cyou/posts/FilterHiggsEventsByBDT/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This is the final project of the subatomic physics online course hosted by MIT which I’ve attended this term. An easy but somehow interesting project. It’s basically the original version I submitted, with tiny adjustments.</p>
+<p>With out further data selection Figure&nbsp;1, the data is not significant comparing to the background. Around 125GeV, the data seems to be random distributed.</p>
+<div id="fig-og-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-og-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://blog.zhaose.cyou/posts/FilterHiggsEventsByBDT/images/og-plot.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-og-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: unfiltered data plot
+</figcaption>
+</figure>
+</div>
+<section id="basic-object-selection-z-candidates" class="level1">
+<h1>Basic Object Selection &amp; Z candidates</h1>
+<p>After implying momentum &amp; <img src="https://latex.codecogs.com/png.latex?%5Ceta"> cut, one should also filter out those events with wrong lepton pair, which does not satisfy charge conservation.</p>
+<p>Then pick the first one among four leptons, pair it with one of, if not the only, other leptons which is its anti-particle counterpart. After this process, one or two pair(s) of Z boson candidates can be constructed. However, we should choose the one pair which among the pair there is one Z boson as close to on-shell as possible.</p>
+<p>After constructing and choosing the best fitting Z boson pairs, one can draw the distribution of constructed Z boson mass, separating by decay flavor or maximum/minimum in the pair. This leads to Figure&nbsp;2 (by flavor) and Figure&nbsp;3 (by energy).</p>
+<div id="fig-flavor-Z" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flavor-Z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://blog.zhaose.cyou/posts/FilterHiggsEventsByBDT/images/flavor_Z.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flavor-Z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <img src="https://latex.codecogs.com/png.latex?m_Z"> distribution separated by decay flavor
+</figcaption>
+</figure>
+</div>
+<div id="fig-mass-Z" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mass-Z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://blog.zhaose.cyou/posts/FilterHiggsEventsByBDT/images/high_low_Z.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mass-Z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: <img src="https://latex.codecogs.com/png.latex?m_Z"> distribution separated by whether they are the larger one or not
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="find-apply-the-best-simple-cut" class="level1">
+<h1>Find &amp; apply the best simple cut</h1>
+<p>By selecting the MC events which <img src="https://latex.codecogs.com/png.latex?m_%7B4l%7D"> fits between <img src="https://latex.codecogs.com/png.latex?119GeV"> and 131GeV, one can, for each event, construct a Z boson pair based on the method we have mentioned before. The constructed Z boson pair has two Z boson masses, one is <img src="https://latex.codecogs.com/png.latex?Z_1">, which is closer to <img src="https://latex.codecogs.com/png.latex?m_Z"> (on-shell mass), comparing to the other one <img src="https://latex.codecogs.com/png.latex?Z_2">.</p>
+<p>A cut confines <img src="https://latex.codecogs.com/png.latex?m_%7BZ_1%7D"> and <img src="https://latex.codecogs.com/png.latex?m_%7BZ_2%7D"> in a specific region on the <img src="https://latex.codecogs.com/png.latex?(m_%7BZ_1%7D,m_%7BZ_2%7D)"> plane. Four parameters are needed, implies that <img src="https://latex.codecogs.com/png.latex?%0AC_1%20%3C%20m_%7BZ_1%7D%20%3C%20C_2,%5C;%20C_3%20%3C%20m_%7BZ_2%7D%20%3C%20C_4,%0A"> By sweeping through the parameter space, which is chosen to be <img src="https://latex.codecogs.com/png.latex?20-35,%2095-115,%2010-24,%2045-68">, the optimal combination is <img src="https://latex.codecogs.com/png.latex?C%20=%20(26,%2099,%2014,%2064)">.</p>
+<p>By using <img src="https://latex.codecogs.com/png.latex?C%20=%20(26,%2099,%2014,%2064)">, among the <strong>71190</strong> MC events which passed the cut, <strong>63157</strong> events are <img src="https://latex.codecogs.com/png.latex?H%20%5Cto%204l"> events, the significance value is <strong>2.341</strong>.</p>
+<p>By applying this fine-tuned cut to the MC events and real data, one can improve the diagram of the distribution of <img src="https://latex.codecogs.com/png.latex?m_%7B4l%7D">, to find Higgs signal. The result is shown in Figure&nbsp;4.</p>
+<div id="fig-refined" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-refined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://blog.zhaose.cyou/posts/FilterHiggsEventsByBDT/images/refined.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-refined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: <img src="https://latex.codecogs.com/png.latex?m_%7B4l%7D"> distribution after filtering out irrelevant events by simple cut
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="filtering-events-by-bdt-classifier" class="level1">
+<h1>Filtering events by BDT classifier</h1>
+<p>The ML library used is <code>EvoTrees.jl</code>. Here we are using a decision tree with depth of 4, trained 200 rounds, the loss algorithm is Logarithmic Loss.</p>
+<p>For training, we split the MC events satisfied previous constraints in half. Half of the events are used for training, and the other half are used to find the optimal threshold. With this configuration, 70312 MC events passed, with 62604 Higgs events among them, and the significance is 2.341.</p>
+<p>Using BDT with Z boson masses as input features yielded a result similar to the rectangular cut method. This similarity is expected, the kinematics of <img src="https://latex.codecogs.com/png.latex?H%20%5Cto%204l"> and <img src="https://latex.codecogs.com/png.latex?ZZ"> are overlapping, which means BDT, which can be seen as offering a more fine-tuned cutting boundary, still won’t be able to tell them apart. The BDT could potentially offer greater improvements if additional kinematic variables is included.</p>
+<p>The result with BDT filtering is shown in Figure&nbsp;5.</p>
+<div id="fig-refined-bdt" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-refined-bdt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://blog.zhaose.cyou/posts/FilterHiggsEventsByBDT/images/refined_bdt.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-refined-bdt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: <img src="https://latex.codecogs.com/png.latex?m_%7B4l%7D"> distribution after filtering out irrelevant events by BDT
+</figcaption>
+</figure>
+</div>
+<p>Through the whole data set we do see some differences between BDT and rectangular cut. BDT does not filter out much when <img src="https://latex.codecogs.com/png.latex?m_%7B4l%7D"> is too large, but this does not affect our result about Higgs boson.</p>
+<p>All Julia and LaTeX source code can be found at <a href="https://github.com/zhaose233/subatomic-final-project">this repo</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>physics</category>
+  <category>experiment</category>
+  <guid>https://blog.zhaose.cyou/posts/FilterHiggsEventsByBDT/</guid>
+  <pubDate>Sat, 31 Jan 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Simulating Harmonic Oscillator on a Lattice</title>
   <dc:creator>Zhaose </dc:creator>

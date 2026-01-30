@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/FilterHiggsEventsByBDT/index.html",
       "/posts/LatticeHarmonicOscillator/index.html",
       "/posts/PortalGravity/index.html",
       "/posts/AxionPhotonComptonScattering/index.html",

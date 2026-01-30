@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Zhaose">
+<meta name="dcterms.date" content="2026-01-31">
 
-<title>All Posts – Zhaose’s Physics Notes</title>
+<title>Filter Events by BDT for Higgs in LHC – Zhaose’s Physics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./logo.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5e99c3f50aa0887911655d9aaa3c29ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5e99c3f50aa0887911655d9aaa3c29ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -145,9 +116,10 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Zhaose's Physics Notes" href="index.xml" data-external="1"><meta property="og:title" content="All Posts – Zhaose’s Physics Notes">
-<meta property="og:image" content="https://blog.zhaose.cyou/posts/BornApproximationFromPathIntegral/cover.svg">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Filter Events by BDT for Higgs in LHC – Zhaose’s Physics Notes">
+<meta property="og:description" content="Find all sorts of wired inspirations about physics here.">
+<meta property="og:image" content="https://blog.zhaose.cyou/posts/FilterHiggsEventsByBDT/images/og-plot.svg">
 <meta property="og:site_name" content="Zhaose's Physics Notes">
 </head>
 
@@ -158,7 +130,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Zhaose’s Physics Notes</span>
     </a>
   </div>
@@ -169,7 +141,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -178,7 +150,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -192,248 +164,137 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">All Posts</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Filter Events by BDT for Higgs in LHC</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">physics</div>
+                <div class="quarto-category">experiment</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Zhaose </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 31, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Y2xhc3NpY2Fs">classical <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29tcHV0YXRpb25hbA==">computational <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZXhwZXJpbWVudA==">experiment <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVu">fun <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGF0aC1pbnRlZ3JhbA==">path-integral <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGh5c2ljcw==">physics <span class="quarto-category-count">(6)</span></div><div class="category" data-category="UUZU">QFT <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UU0=">QM <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#basic-object-selection-z-candidates" id="toc-basic-object-selection-z-candidates" class="nav-link active" data-scroll-target="#basic-object-selection-z-candidates">Basic Object Selection &amp; Z candidates</a></li>
+  <li><a href="#find-apply-the-best-simple-cut" id="toc-find-apply-the-best-simple-cut" class="nav-link" data-scroll-target="#find-apply-the-best-simple-cut">Find &amp; apply the best simple cut</a></li>
+  <li><a href="#filtering-events-by-bdt-classifier" id="toc-filtering-events-by-bdt-classifier" class="nav-link" data-scroll-target="#filtering-events-by-bdt-classifier">Filtering events by BDT classifier</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="cGh5c2ljcyUyQ2V4cGVyaW1lbnQ=" data-listing-date-sort="1769817600000" data-listing-file-modified-sort="1769764977878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="569">
-<div class="thumbnail"><a href="./posts/FilterHiggsEventsByBDT/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/FilterHiggsEventsByBDT/images/og-plot.svg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/FilterHiggsEventsByBDT/index.html" class="no-external">Filter Events by BDT for Higgs in LHC</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5c2ljcw=='); return false;">physics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZXhwZXJpbWVudA=='); return false;">experiment</div>
-
+<p>This is the final project of the subatomic physics online course hosted by MIT which I’ve attended this term. An easy but somehow interesting project. It’s basically the original version I submitted, with tiny adjustments.</p>
+<p>With out further data selection <a href="#fig-og-plot" class="quarto-xref">Figure&nbsp;1</a>, the data is not significant comparing to the background. Around 125GeV, the data seems to be random distributed.</p>
+<div id="fig-og-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-og-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/og-plot.svg" class="img-fluid figure-img">
 </div>
-<div class="delink listing-description"><a href="./posts/FilterHiggsEventsByBDT/index.html" class="no-external">
-This is the final project of the subatomic physics online course hosted by MIT which I’ve attended this term. An easy but somehow interesting project. It’s basically the…
-</a></div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-og-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: unfiltered data plot
+</figcaption>
+</figure>
 </div>
-<div class="metadata">
-<a href="./posts/FilterHiggsEventsByBDT/index.html" class="no-external">
-<div class="listing-date">
-Jan 31, 2026
+<section id="basic-object-selection-z-candidates" class="level1">
+<h1>Basic Object Selection &amp; Z candidates</h1>
+<p>After implying momentum &amp; <span class="math inline">\eta</span> cut, one should also filter out those events with wrong lepton pair, which does not satisfy charge conservation.</p>
+<p>Then pick the first one among four leptons, pair it with one of, if not the only, other leptons which is its anti-particle counterpart. After this process, one or two pair(s) of Z boson candidates can be constructed. However, we should choose the one pair which among the pair there is one Z boson as close to on-shell as possible.</p>
+<p>After constructing and choosing the best fitting Z boson pairs, one can draw the distribution of constructed Z boson mass, separating by decay flavor or maximum/minimum in the pair. This leads to <a href="#fig-flavor-Z" class="quarto-xref">Figure&nbsp;2</a> (by flavor) and <a href="#fig-mass-Z" class="quarto-xref">Figure&nbsp;3</a> (by energy).</p>
+<div id="fig-flavor-Z" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flavor-Z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/flavor_Z.svg" class="img-fluid figure-img">
 </div>
-<div class="listing-author">
-Zhaose
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flavor-Z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <span class="math inline">m_Z</span> distribution separated by decay flavor
+</figcaption>
+</figure>
 </div>
-</a>
+<div id="fig-mass-Z" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mass-Z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/high_low_Z.svg" class="img-fluid figure-img">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mass-Z-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: <span class="math inline">m_Z</span> distribution separated by whether they are the larger one or not
+</figcaption>
+</figure>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="cGh5c2ljcyUyQ2NvbXB1dGF0aW9uYWwlMkNwYXRoLWludGVncmFsJTJDUU0=" data-listing-date-sort="1768694400000" data-listing-file-modified-sort="1769764977878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1024">
-<div class="thumbnail"><a href="./posts/LatticeHarmonicOscillator/index.html" class="no-external">
+</section>
+<section id="find-apply-the-best-simple-cut" class="level1">
+<h1>Find &amp; apply the best simple cut</h1>
+<p>By selecting the MC events which <span class="math inline">m_{4l}</span> fits between <span class="math inline">119GeV</span> and 131GeV, one can, for each event, construct a Z boson pair based on the method we have mentioned before. The constructed Z boson pair has two Z boson masses, one is <span class="math inline">Z_1</span>, which is closer to <span class="math inline">m_Z</span> (on-shell mass), comparing to the other one <span class="math inline">Z_2</span>.</p>
+<p>A cut confines <span class="math inline">m_{Z_1}</span> and <span class="math inline">m_{Z_2}</span> in a specific region on the <span class="math inline">(m_{Z_1},m_{Z_2})</span> plane. Four parameters are needed, implies that <span class="math display">
+C_1 &lt; m_{Z_1} &lt; C_2,\; C_3 &lt; m_{Z_2} &lt; C_4,
+</span> By sweeping through the parameter space, which is chosen to be <span class="math inline">20-35, 95-115, 10-24, 45-68</span>, the optimal combination is <span class="math inline">C = (26, 99, 14, 64)</span>.</p>
+<p>By using <span class="math inline">C = (26, 99, 14, 64)</span>, among the <strong>71190</strong> MC events which passed the cut, <strong>63157</strong> events are <span class="math inline">H \to 4l</span> events, the significance value is <strong>2.341</strong>.</p>
+<p>By applying this fine-tuned cut to the MC events and real data, one can improve the diagram of the distribution of <span class="math inline">m_{4l}</span>, to find Higgs signal. The result is shown in <a href="#fig-refined" class="quarto-xref">Figure&nbsp;4</a>.</p>
+<div id="fig-refined" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-refined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/refined.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-refined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: <span class="math inline">m_{4l}</span> distribution after filtering out irrelevant events by simple cut
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="filtering-events-by-bdt-classifier" class="level1">
+<h1>Filtering events by BDT classifier</h1>
+<p>The ML library used is <code>EvoTrees.jl</code>. Here we are using a decision tree with depth of 4, trained 200 rounds, the loss algorithm is Logarithmic Loss.</p>
+<p>For training, we split the MC events satisfied previous constraints in half. Half of the events are used for training, and the other half are used to find the optimal threshold. With this configuration, 70312 MC events passed, with 62604 Higgs events among them, and the significance is 2.341.</p>
+<p>Using BDT with Z boson masses as input features yielded a result similar to the rectangular cut method. This similarity is expected, the kinematics of <span class="math inline">H \to 4l</span> and <span class="math inline">ZZ</span> are overlapping, which means BDT, which can be seen as offering a more fine-tuned cutting boundary, still won’t be able to tell them apart. The BDT could potentially offer greater improvements if additional kinematic variables is included.</p>
+<p>The result with BDT filtering is shown in <a href="#fig-refined-bdt" class="quarto-xref">Figure&nbsp;5</a>.</p>
+<div id="fig-refined-bdt" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-refined-bdt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/refined_bdt.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-refined-bdt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: <span class="math inline">m_{4l}</span> distribution after filtering out irrelevant events by BDT
+</figcaption>
+</figure>
+</div>
+<p>Through the whole data set we do see some differences between BDT and rectangular cut. BDT does not filter out much when <span class="math inline">m_{4l}</span> is too large, but this does not affect our result about Higgs boson.</p>
+<p>All Julia and LaTeX source code can be found at <a href="https://github.com/zhaose233/subatomic-final-project">this repo</a>.</p>
 
-<img loading="lazy" src="./posts/LatticeHarmonicOscillator/images/fig.svg" class="thumbnail-image">
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/LatticeHarmonicOscillator/index.html" class="no-external">Simulating Harmonic Oscillator on a Lattice</a>
-</h3>
-<div class="listing-categories">
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5c2ljcw=='); return false;">physics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0YXRpb25hbA=='); return false;">computational</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGF0aC1pbnRlZ3JhbA=='); return false;">path-integral</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UU0='); return false;">QM</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/LatticeHarmonicOscillator/index.html" class="no-external">
-For a harmonic oscillator, the lagrangian can be written as: <span class="math display">
-L = \frac{1}{2} m \dot{x}^2 - \frac{1}{2} m \omega^2 x^2
-</span> The two-point correlation function then, is <span class="math display">
-D_q(t_1…</span><span class="math display"></span><span class="math display"></span><span class="math inline"></span><span class="math display"></span><span class="math inline"></span><span class="math inline"></span><span class="math display"></span><span class="math inline"></span><span id="eq-1"><span class="math display"></span></span><span id="eq-2"><span class="math display"></span></span>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/LatticeHarmonicOscillator/index.html" class="no-external">
-<div class="listing-date">
-Jan 18, 2026
-</div>
-<div class="listing-author">
-Zhaose
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="cGh5c2ljcyUyQ2NvbXB1dGF0aW9uYWwlMkNjbGFzc2ljYWwlMkNmdW4=" data-listing-date-sort="1765843200000" data-listing-file-modified-sort="1769764977883" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="848">
-<div class="thumbnail"><a href="./posts/PortalGravity/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/PortalGravity/images/fig1.svg" alt="G Field"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PortalGravity/index.html" class="no-external">Gravity With Portal</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5c2ljcw=='); return false;">physics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcHV0YXRpb25hbA=='); return false;">computational</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2xhc3NpY2Fs'); return false;">classical</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVu'); return false;">fun</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PortalGravity/index.html" class="no-external">
-Recently, I saw this interesting youtube video, at the first glance, I realized it is just solving the classical gravitational equation maybe under a specific boundary…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PortalGravity/index.html" class="no-external">
-<div class="listing-date">
-Dec 16, 2025
-</div>
-<div class="listing-author">
-Zhaose
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="cGh5c2ljcyUyQ1FGVA==" data-listing-date-sort="1764374400000" data-listing-file-modified-sort="1769764977874" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="680">
-<div class="thumbnail"><a href="./posts/AxionPhotonComptonScattering/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/AxionPhotonComptonScattering/images/dia2.svg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/AxionPhotonComptonScattering/index.html" class="no-external">Axion-photon Compton Scattering</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5c2ljcw=='); return false;">physics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UUZU'); return false;">QFT</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/AxionPhotonComptonScattering/index.html" class="no-external">
-The effective axion-photon lagrangian can be written as: <span class="math display">
-\mathcal{L}_{\alpha\gamma} = (\frac{1}{2} \partial_\mu a \, \partial^\mu a - \frac{1}{2}m^2 a^2)
-+ (-\frac{1}{4}…</span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math display"></span><span class="math display"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/AxionPhotonComptonScattering/index.html" class="no-external">
-<div class="listing-date">
-Nov 29, 2025
-</div>
-<div class="listing-author">
-Zhaose
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="cGh5c2ljcyUyQ1FGVA==" data-listing-date-sort="1761004800000" data-listing-file-modified-sort="1769764977885" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1083">
-<div class="thumbnail"><a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/RenormalizationOfScalarPropagatorInAToyModel/images/pic2.svg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external">Renormalization of scalar propagator in a toy model</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5c2ljcw=='); return false;">physics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UUZU'); return false;">QFT</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external">
-Consider a mass-full scalar field <span class="math inline">\phi</span> coupling with a mass-less scalar field <span class="math inline">\chi</span>, the toy model’s total Lagrangian can be written as: <span class="math display">
-\mathcal{L}_B = \partial_\mu \phi^*…</span>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/RenormalizationOfScalarPropagatorInAToyModel/index.html" class="no-external">
-<div class="listing-date">
-Oct 21, 2025
-</div>
-<div class="listing-author">
-Zhaose
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="cGh5c2ljcyUyQ1FN" data-listing-date-sort="1753920000000" data-listing-file-modified-sort="1769764977875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="395">
-<div class="thumbnail"><a href="./posts/BornApproximationFromPathIntegral/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/BornApproximationFromPathIntegral/cover.svg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/BornApproximationFromPathIntegral/index.html" class="no-external">Born approximation from path integral</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGh5c2ljcw=='); return false;">physics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UU0='); return false;">QM</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/BornApproximationFromPathIntegral/index.html" class="no-external">
-Born approximation is one of the most well-known perturbation method for calculating quantum scattering processes in quantum mechanics. The transition matrix can be written…<span class="math display"></span><span class="math inline"></span>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/BornApproximationFromPathIntegral/index.html" class="no-external">
-<div class="listing-date">
-Jul 31, 2025
-</div>
-<div class="listing-author">
-Zhaose
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
