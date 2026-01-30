@@ -3,7 +3,7 @@ title: "Filter Events by BDT for Higgs in LHC"
 author: "Zhaose"
 date: "2026-01-31"
 categories: [physics, experiment]
-# image: "cover.svg"
+image: "./images/refined.svg"
 ---
 
 This is the final project of the subatomic physics online course hosted by MIT which I've attended this term. An easy but somehow interesting project. It's basically the original version I submitted, with tiny adjustments.
