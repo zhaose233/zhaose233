@@ -152,7 +152,7 @@ From $\delta(m_N - |\overrightarrow{p}_2 + \overrightarrow{p}_3| - |\overrightar
 $$
   \cos{\alpha} = \frac{m_N^2}{2|\overrightarrow{p}_2||\overrightarrow{p}_3|}-\frac{m_N}{|\overrightarrow{p}_3|}-\frac{m_N}{|\overrightarrow{p}_2|}+1
 $$
-To make sure $\delta$ function not get 0, we need $ \frac{m_N}{2} - |\overrightarrow{p}_3| < |\overrightarrow{p}_2| < \frac{m_N}{2}$. Now the integrate over $|\overrightarrow{p}_2|$ can be done.
+To make sure $\delta$ function not get 0, we need $\frac{m_N}{2} - |\overrightarrow{p}_3| < |\overrightarrow{p}_2| < \frac{m_N}{2}$. Now the integrate over $|\overrightarrow{p}_2|$ can be done.
 
 At the same time, $0 < \varphi < 2 \pi$, so $\varphi$ can be integrated out pretty easily. The only things left is $|\overrightarrow{p}_3|$ and $\cos{\theta_3}$, so
 $$
