@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Zhaose">
+<meta name="dcterms.date" content="2026-04-13">
 
-<title>About – Zhaose’s Physics Notes</title>
+<title>Polarization of HNL in Muon &amp; Pion Decays – Zhaose’s Physics Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,23 +28,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./logo.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-26dae77753c00ddc60f3d23f562a3f65.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-26dae77753c00ddc60f3d23f562a3f65.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,22 +74,67 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="About – Zhaose’s Physics Notes">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Polarization of HNL in Muon &amp; Pion Decays – Zhaose’s Physics Notes">
 <meta property="og:description" content="Find all sorts of wired inspirations about physics here.">
-<meta property="og:image" content="https://blog.zhaose.cyou/profile.jpg">
+<meta property="og:image" content="https://blog.zhaose.cyou/posts/HNLPolarizationInDecays/images/fig1.png">
 <meta property="og:site_name" content="Zhaose’s Physics Notes">
+<meta property="og:image:height" content="475">
+<meta property="og:image:width" content="1120">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Zhaose’s Physics Notes</span>
     </a>
   </div>
@@ -97,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -106,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -118,45 +166,181 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Polarization of HNL in Muon &amp; Pion Decays</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">physics</div>
+                <div class="quarto-category">QFT</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Zhaose </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 13, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pion-decay" id="toc-pion-decay" class="nav-link active" data-scroll-target="#pion-decay">Pion Decay</a></li>
+  <li><a href="#muon-decay" id="toc-muon-decay" class="nav-link" data-scroll-target="#muon-decay">Muon Decay</a></li>
+  <li><a href="#hnl-decay" id="toc-hnl-decay" class="nav-link" data-scroll-target="#hnl-decay">HNL Decay</a>
+  <ul class="collapse">
+  <li><a href="#radiation-decay" id="toc-radiation-decay" class="nav-link" data-scroll-target="#radiation-decay">Radiation Decay</a></li>
+  <li><a href="#lepton-decay" id="toc-lepton-decay" class="nav-link" data-scroll-target="#lepton-decay">Lepton Decay</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>Zhaose, an undergraduate student studying physcis at ECNU (East China Normal University), who is interested in Quantum Field Theory and Elementary Particle Physics.</p>
-<p>This blog is mainly focused on posting small calculations and projects about physcis.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://github.com/zhaose233" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://t.me/zhaose" class="about-link" rel="" target="">
-    <i class="bi bi-telegram"></i>
-     <span class="about-link-text">Telegram</span>
-  </a>
-  <a href="https://twitter.com/@zhaose2" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+
+
+<p>HNL (Heavy Neutral Lepton) is inevitable in a lot of SM expansions which try to explain the origin of neutrino mass, like Type-I Seesaw, Inversed Seesaw, etc. The massive HNL in decay has more rich phenomenology compared with massless neutrino, for example, it has polarization.</p>
+<section id="pion-decay" class="level1">
+<h1>Pion Decay</h1>
+<p>When a pion decays into an HNL, the Feynman diagram is <img src="./images/fig1.png" class="img-fluid" alt="Pion Decay"> and the amplitude is <span class="math display">
+  \mathcal{M} = \frac{f_\pi g_w^2}{8 M_W^2} k^\mu [\bar{u}(p_2) \gamma_\mu (1 - \gamma^5) v(p_1)]
+</span> Using the canonical way of dealing with amplitudes, it’s not difficult to get the decay width. However, if one wants to take the polorization of HNL in count, the following relation should be used <span class="math display">
+  u(p_2) \bar{u}(p_2) = (\not{p}_2 + m_N) \frac{1 + \not{s}}{2}
+</span> Where <span class="math inline">s^\mu</span> is the spin 4-vector of HNL particle. In the rest frame of HNL, <span class="math inline">s</span> of spin parallel/antiparallel with z-axis is <span class="math display">
+  s_{rest}^\mu = (0, 0, 0, s)
+</span> Where <span class="math inline">s=\pm 1</span>. And in a frame other than the rest frame of HNL, a Lorentz Boost needs to be applied. In the process of pion decay, we work in the rest frame of pion, and let <span class="math inline">p_2</span> point towards z-axis, then <span class="math display">
+  s^\mu = \Lambda^\mu_\nu s_{rest}^\nu = \left(\frac{|p_2|}{m_N} s, 0, 0, \frac{\sqrt{|p_2|^2 + m_N^2}}{m_N} s\right)
+</span> Hence <span class="math inline">|\mathcal{M}|^2</span> is <span class="math display">
+  \langle |\mathcal{M}| \rangle^2 = \frac{1}{16} \left[ f_\pi^2 \left( \frac{g_w}{M_W} \right)^2 \right]^2 [ 2 (k \cdot p_1) (k \cdot p_2) - k^2 (p_1 \cdot p_2) + 2 m_N (k \cdot p_1) (k \cdot s) - m_N k^2 (p_1 \cdot s) ]
+</span> It’s a two-body decay, all 4-momentum has a fixed number. Substitute those numbers we can get <span class="math display">
+  % \Gamma_{\pi \to N}^{(s)} \propto (m_\mu^2 + m_N^2) m_\pi^2 - (m_\mu^2 - m_N^2)^2 - s \cdot (m_\mu^2 - m_N^2) \sqrt{\lambda(m_\pi^2, m_\mu^2, m_N^2)}
+  \frac{\Gamma_R}{\Gamma_L} = \frac{(m_\mu^2 + m_N^2) m_\pi^2 - (m_\mu^2 - m_N^2)^2 - (m_\mu^2 - m_N^2) \sqrt{\lambda(m_\pi^2, m_\mu^2, m_N^2)}}
+  {(m_\mu^2 + m_N^2) m_\pi^2 - (m_\mu^2 - m_N^2)^2 + (m_\mu^2 - m_N^2) \sqrt{\lambda(m_\pi^2, m_\mu^2, m_N^2)}}
+</span> And of course if we sum <span class="math inline">s=\pm 1</span>, which means we don’t care about HNL’s polariztion in the final state, we have <span class="math display">
+  \frac{\Gamma_{\pi \to \mu N}}{\Gamma_{\pi \to \mu \nu}} =
+  |U_{\mu}|^2 \times \rho_\pi (m_N)
+</span> where <span class="math display">
+\begin{align*}
+   &amp; \rho_\pi (m_N) = \frac{(m_\pi^2 (m_\mu^2 + m_N^2) - (m_\mu^2 - m_N^2)^2) \sqrt{\lambda(m_\pi^2, m_\mu^2, m_N^2)}}{m_\mu^2 (m_\pi^2 - m_\mu^2)^2} \\
+   &amp; \lambda(x, y, z) = x^2 + y^2 + z^2 - 2xy - 2yz - 2zx
+\end{align*}
+</span></p>
+</section>
+<section id="muon-decay" class="level1">
+<h1>Muon Decay</h1>
+<p><img src="./images/fig2.png" class="img-fluid" alt="Muon Decay"> When a muon decays into HNL, we have <span class="math display">
+  \mathcal{M} = 2\sqrt{2} G_F [\bar{u}(p_1) \gamma_\mu P_L u(k)] \cdot [\bar{u}(p_2) \gamma^\mu P_L v(p_3) ]
+</span> Keep HNL’s polarization as we’ve done before, a simple term of <span class="math inline">\langle |\mathcal{M}| \rangle^2</span> can be obtained <span class="math display">
+  \langle |\mathcal{M}| \rangle^2 = 32 G_F [(k \cdot p_3)(p_1 \cdot p_2) - m_N (k \cdot p_3) (p_2 \cdot s)]
+</span> Get rid of <span class="math inline">p_2</span> and keep things in order <span class="math display">
+  \begin{split}
+    \langle |\mathcal{M}| \rangle^2 &amp; = 32 G_F^2 m_\mu |\overrightarrow{p}_3| [ \frac{1}{2}(m_\mu^2 - m_N^2)  - |\overrightarrow{p}_3| m_\mu                                  \\
+                                    &amp; - s \left(m_\mu |\overrightarrow{p}_1| - |\overrightarrow{p}_3| |\overrightarrow{p}_1| + |\overrightarrow{p}_3| \cos{θ_3} E_1\right) ]
+  \end{split}
+</span> Where <span class="math inline">E_1=\sqrt{|\overrightarrow{p}_1|^2 + m_N^2}</span>. Integrate to get the decay width <span class="math display">
+  d \Gamma = \frac{1}{16(2\pi)^4 m_\mu} \frac{d^3 \overrightarrow{p}_1}
+  {|\overrightarrow{p}_1| \cdot E_1} d |\overrightarrow{p}_3| \int_{u_-}^{u_+} \langle |\mathcal{M}| \rangle^2 \delta(m_\mu - E_1 - |\overrightarrow{p}_3| - u) \, d u
+</span> Where <span class="math inline">u^2 \equiv |\overrightarrow{p}_1 + \overrightarrow{p}_3|^2</span>. Integrate over <span class="math inline">u</span> then we get <span class="math display">
+  \Gamma = \frac{1}{(4\pi)^4 m_\mu} \int \frac{d^3 \overrightarrow{p}_1}{|\overrightarrow{p}_1| \cdot E_1} \int_{|\overrightarrow{p}_3|_{-}}^{|\overrightarrow{p}_3|_{+}}
+  d |\overrightarrow{p}_3| \langle |\mathcal{M}| \rangle^2
+</span> Due to the selecting nature of <span class="math inline">\delta</span> function, and to make sure the integrate over <span class="math inline">\delta</span> is not zero, the following conditions need to be fulfilled <span class="math display">
+\begin{align*}
+  \cos{\theta_3}               &amp; = \frac{2 |\overrightarrow{p}_3| (E_1 - m_\mu) -2 m_\mu E_1 + m_\mu^2 + m_N^2}{2 |\overrightarrow{p}_1| |\overrightarrow{p}_3|} \\
+  |\overrightarrow{p}_3|_{\pm} &amp; = \frac{1}{2}(m_\mu \pm |\overrightarrow{p}_1| - E_1)                                                                           \\
+\end{align*}
+</span> and <span class="math display">
+  0 &lt; |\overrightarrow{p}_1| &lt; \frac{m_\mu^2-m_N^2}{2 m_\mu}
+</span> Done with the integration, substitute in <span class="math inline">s</span> we can get the answer <span class="math display">
+\begin{align*}
+\frac{\Gamma_{\mu \to N}}{\Gamma_{\mu \to \nu}} &amp;= |U_{\mu}|^2 \times \rho_\mu(m_N) \\
+\rho_\mu(m_N) &amp;= - r_N^8 + 8 r_N^6 - 24 r_N^4 \ln(r_N) - 8 r_N^2 + 1 \\
+\frac{d\Gamma}{dE} &amp;= \frac{G_F^2 p^2 (3 m_\mu^2 E + 3 m_N^2 E - 4 m_\mu p - 6 m_N^2 m_\mu)}{12 \pi^3 E} \\
+\Gamma_{\mu \to N}^{(s)} &amp;\propto \; s \cdot (r_N^8-32 r_N^5+90 r_N^4-96 r_N^3+40 r_N^2-3) \\
+                         &amp;\; -72 r_N^4 \, \ln{(r_N)} -3 r_N^8+24 r_N^6-24 r_N^2+3
+\end{align*}
+</span></p>
+</section>
+<section id="hnl-decay" class="level1">
+<h1>HNL Decay</h1>
+<p>For HNL decay, we work in the rest frame of HNL itself, so the spin 4-vector can be fixed to <span class="math inline">(0,0,0,1)</span>.</p>
+<section id="radiation-decay" class="level2">
+<h2 class="anchored" data-anchor-id="radiation-decay">Radiation Decay</h2>
+<p><img src="./images/fig4.png" class="img-fluid" alt="HNL Radiation Decay"> Assume HNL has some kind of coupling to photon through a operator below <span class="math display">
+  \mathcal{L}_{int} = \frac{d}{2} \bar{\nu}_L \sigma_{\mu \nu} F^{\mu \nu} N + h.c.
+</span> then the vertex is <span class="math display">
+  i \, 2 \, d \, \sigma^{\alpha\beta} q_\beta P_R
+</span> Amplitude is <span class="math display">
+  \mathcal{M} = 2i \, d [\bar{u}(p_1) \sigma^{\alpha\beta} p_{2\beta} P_R u(k)] \epsilon_\alpha(p_2)
+</span> Some trivial calculations will reveal <span class="math display">
+  \langle |\mathcal{M}| \rangle^2 = 4 |d|^2 m_N^3 [m_N + 2 (p_2 \cdot s)]
+</span> Notice that <span class="math inline">p_2 \cdot s = \frac{m_N}{2} \cos{\theta_s}</span>, which gives use the answer <span class="math display">
+  \frac{d \Gamma}{d \Omega} \propto 1 + \cos{\theta_{s}}
+</span></p>
+</section>
+<section id="lepton-decay" class="level2">
+<h2 class="anchored" data-anchor-id="lepton-decay">Lepton Decay</h2>
+<p><img src="./images/fig3.png" class="img-fluid" alt="HNL Lepton Decay"> The process which HNL decays into leptons is a neutral-weak process, hence the vertex carries a factor containing Weak Mixing Angle, so <span class="math display">
+  \mathcal{M} = \frac{G_F}{\sqrt{2}} [\bar{u}(p_1) \gamma^\mu P_L u(k)] \cdot [ \bar{u}(p_2) (2 s_W^2 - P_L) v(p_3)]
+</span> Keep the polarization of HNL will make things really complicated <span class="math display">
+  \begin{split}
+    \langle |\mathcal{M}| \rangle^2 = \frac{G_F^2}{2} \{ &amp; - 8 m_N^2 |\overrightarrow{p}_3|^2 + 4 m_N^3 |\overrightarrow{p}_3| + 32  s_W^2 m_N^2 |\overrightarrow{p}_3|^2 - 16  s_W^2 m_N^3 |\overrightarrow{p}_3|                                                                                                     \\
+                                                          &amp; - 32  s_W^4 m_N^2 |\overrightarrow{p}_3|^2 - 32  s_W^4 m_N^2  |\overrightarrow{p}_2|^2 + 16  s_W^4 m_N^3 |\overrightarrow{p}_3|                                                                                                                             \\
+                                                          &amp; + 16  s_W^4 m_N^3  |\overrightarrow{p}_2| + 32  |\overrightarrow{p}_2| \cos{\theta_2}  s_W^4 m_N^2  |\overrightarrow{p}_2| - 16  |\overrightarrow{p}_2| \cos{\theta_2}  s_W^4 m_N^3 + 8  |\overrightarrow{p}_3| \cos{\theta_3} m_N^2 |\overrightarrow{p}_3| \\
+                                                          &amp; - 4  |\overrightarrow{p}_3| \cos{\theta_3} m_N^3 - 32  |\overrightarrow{p}_3| \cos{\theta_3}  s_W^2 m_N^2 |\overrightarrow{p}_3| + 16  |\overrightarrow{p}_3| \cos{\theta_3}  s_W^2 m_N^3                                                                   \\
+                                                          &amp; + 32  |\overrightarrow{p}_3| \cos{\theta_3}  s_W^4 m_N^2 |\overrightarrow{p}_3| - 16  |\overrightarrow{p}_3| \cos{\theta_3}  s_W^4 m_N^3 \}
+  \end{split}
+</span> If we want to calculate the spectrum of the final state electrons, take the electron assigned with momentum <span class="math inline">p_3</span> as an example, we first integrate out <span class="math inline">\theta_2</span>. Let the angle between <span class="math inline">\overrightarrow{p}_2</span> and <span class="math inline">\overrightarrow{p}_3</span> be <span class="math inline">\alpha</span>, do the substitution which is <span class="math inline">u^2 \equiv |\overrightarrow{p}_2 + \overrightarrow{p}_3|^2</span>, then one can solve the integrate over <span class="math inline">\alpha</span>, and <span class="math inline">\cos{\theta_2} = \cos{\alpha} \cos{\theta_3} + \sin{\alpha} \sin{\theta_3} \cos{\varphi}</span>.</p>
+<p>From <span class="math inline">\delta(m_N - |\overrightarrow{p}_2 + \overrightarrow{p}_3| - |\overrightarrow{p}_2| - |\overrightarrow{p}_3|)</span> one can obtain <span class="math display">
+  \cos{\alpha} = \frac{m_N^2}{2|\overrightarrow{p}_2||\overrightarrow{p}_3|}-\frac{m_N}{|\overrightarrow{p}_3|}-\frac{m_N}{|\overrightarrow{p}_2|}+1
+</span> To make sure <span class="math inline">\delta</span> function not get 0, we need $ - |_3| &lt; |_2| &lt; $. Now the integrate over <span class="math inline">|\overrightarrow{p}_2|</span> can be done.</p>
+<p>At the same time, <span class="math inline">0 &lt; \varphi &lt; 2 \pi</span>, so <span class="math inline">\varphi</span> can be integrated out pretty easily. The only things left is <span class="math inline">|\overrightarrow{p}_3|</span> and <span class="math inline">\cos{\theta_3}</span>, so <span class="math display">
+  \begin{split}
+    \frac{d \Gamma}{d |\overrightarrow{p}_3| \, d\cos{\theta_3}} = &amp; \frac{4 G_F \pi m_N^2}{3} |\overrightarrow{p}_3|^2                                                                                \\
+                                                                    &amp; \cdot (32 |\overrightarrow{p}_3| s_W^4 \cos{\theta_3}-14 m_N s_W^4 \cos{\theta_3} -24 |\overrightarrow{p}_3| s_W^2 \cos{\theta_3} \\
+                                                                    &amp; +12 m_N s_W^2 \cos{\theta_3} +6 |\overrightarrow{p}_3| \cos{\theta_3}-3 m_N \cos{\theta_3}-32 |\overrightarrow{p}_3| s_W^4        \\
+                                                                    &amp; +18 m_N s_W^4+24 |\overrightarrow{p}_3| s_W^2-12 m_N s_W^2-6 |\overrightarrow{p}_3|+3 m_N)
+  \end{split}
+</span> The same thing can be done to the electron assigned with momentum <span class="math inline">p_2</span>.</p>
+<p>Also, HNL features a decay which turns into 3 neutrinos. It can be treated similarly to the electron pair decay, and a lot easier.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
