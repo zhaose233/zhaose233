@@ -1,5 +1,5 @@
 ---
-title: "Filter Events by BDT for Higgs in LHC"
+title: "Filtering Events by BDT for Higgs in LHC"
 author: "Zhaose"
 date: "2026-01-31"
 categories: [physics, experiment]
