@@ -17,6 +17,7 @@
 
 ![ZH](https://img.shields.io/badge/ZH-Chinese-purple?style=for-the-badge&logoColor=white)
 ![JA](https://img.shields.io/badge/JA-Japanese-pink?style=for-the-badge&logoColor=white)
-![ENG](https://img.shields.io/badge/EN-Enlgish-blue?style=for-the-badge&logoColor=white)
+![EN](https://img.shields.io/badge/EN-Enlgish-blue?style=for-the-badge&logoColor=white)
+![LA](https://img.shields.io/badge/LA-Latin-red?style=for-the-badge&logoColor=white)
 
 
