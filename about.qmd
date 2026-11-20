@@ -16,6 +16,6 @@ about:
 
 ---
 
-Zhaose, an undergraduate student studying physcis at ECNU (East China Normal University), who is interested in Quantum Field Theory and Elementary Particle Physics.
+Zhaose, a graduate student studying theoretical physics at ECNU (East China Normal University), who is interested in Quantum Field Theory and Elementary Particle Physics.
 
-This blog is mainly focused on posting small calculations and projects about physcis.
+This blog is mainly focused on posting small calculations and projects about physics.

@@ -1,0 +1,15 @@
+---
+title: "Friends"
+---
+
+Links:
+
+*    **Integral**  
+     Free Software Enthusiast.  
+     <https://blog.i7arch.com>
+*    **qaqland**  
+     A desktop user of both Alpine Linux and deepin Linux.  
+     <https://qaq.land>
+*    **Betterr**  
+     Premature optimization is the root of all evil.  
+     <https://blog.udp0.com>
